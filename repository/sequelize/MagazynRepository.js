@@ -30,7 +30,7 @@ exports.createMagazyn = (newMagazynData) => {
         mag_iloscPolozen: newMagazynData.mag_iloscPolozen,
         mag_iloscWozkow: newMagazynData.mag_iloscWozkow,
         mag_iloscHal: newMagazynData.mag_iloscHal,
-        mag_iloscSkanerow: newMagazynData.mag_iloscSkanerow === ''  ? newMagazynData.mag_iloscSkanerow : null
+        mag_iloscSkanerow: newMagazynData.mag_iloscSkanerow && !(/^\s*$/.test(newMagazynData.mag_iloscSkanerow)) ? newMagazynData.mag_iloscSkanerow : null
     });
    
 };
@@ -44,10 +44,10 @@ exports.updateMagazyn = (magId, magData) => {
        const mag_iloscPolozen = magData.mag_iloscPolozen;
        const mag_iloscWozkow = magData.mag_iloscWozkow;
        const mag_iloscHal = magData.mag_iloscHal;              
-       const mag_iloscSkanerow =  magData.mag_iloscSkanerow  > 0 ? magData.mag_iloscSkanerow : null;   
+       const mag_iloscSkanerow =  magData.mag_iloscSkanerow && !(/^\s*$/.test(magData.mag_iloscSkanerow)) && magData.mag_iloscSkanerow ===""  ? magData.mag_iloscSkanerow : null;   
             
       
-       console.log('magIlSkan ' +magData.mag_iloscSkanerow);   
+       console.log('magIlSkan ' + JSON.stringify(magData));   
        return Magazyn.update(magData, {where: {mag_id: magId}});       
       
 };
