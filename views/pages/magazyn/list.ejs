@@ -1,0 +1,53 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Lista Magazynów</h2>
+        <table class="table-Mag">
+           <thead>
+               <tr>
+                    <th>Kod</th>
+                    <th>Nazwa</th>
+                    <th>Prefiks kraju(ISO)</th>
+                    <th>Powierzchnia Mkw</th>
+                    <th>Ilość regałów</th>
+                    <th>Ilość położeń</th>
+                    <th>Ilość wózków</th>
+                    <th>Ilość hal</th>
+                    <th>Ilość skanerów</th>
+                    <th>Akcje</th>
+                </tr>
+           </thead>
+           <tbody>
+               <% for (let mag of magazyny) { %>
+               <tr>
+                   <td><%= mag.mag_kod %></td>
+                   <td><%= mag.mag_nazwa %></td>
+                   <td><%= mag.mag_krajPrefix %></td>
+                   <td><%= mag.mag_powierzchnia %></td>
+                   <td><%= mag.mag_iloscRegalow %></td>
+                   <td><%= mag.mag_iloscPolozen %></td>
+                   <td><%= mag.mag_iloscWozkow %></td>
+                   <td><%= mag.mag_iloscHal %></td>
+                   <td><%= mag.mag_iloscSkanerow %></td>
+                   <td>
+                        <ul>
+                            <li>
+                                <a href="/warehouses/details/<%=mag.mag_id%>" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/warehouses/edit/<%=mag.mag_id%>" class="list-actions-button-edit ">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/warehouses/delete/<%=mag.mag_id%>" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            <% } %>
+           </tbody>
+        </table>
+        <form class="form-editbtns">
+           <a href="warehouses/add" class="button-add">Dodaj nowy Magazyn</a>
+           <a href="/" class="button-return">Wróć na stronę główną</a>
+        </form>        
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

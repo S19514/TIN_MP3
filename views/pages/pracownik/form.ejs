@@ -1,0 +1,94 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <script type="application/javascript" src="/js/validationPracownikForm.js"></script>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+            <input type="hidden" name="prc_id" value="<%= prc.prc_id%>"> 
+            
+            <label for="prc_imie">Imię: <span class="symbol-required">*</span></label>
+            <input type="text" name="prc_imie" id ="prc_imie" placeholder="2-150 znaków" value="<%= prc.prc_imie%>"  class="<%=validationErrors.find(e => e.path.includes('prc_imie')) ? 'error-input' : '' %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorprc_imie" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('prc_imie'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('prc_imie')).message %>
+                    <% } %>
+            </span>
+
+            <label for="prc_nazwisko">Nazwisko: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('prc_nazwisko')) ? 'error-input' : '' %>" type="text" name="prc_nazwisko" id ="prc_nazwisko" placeholder="2-150 znaków" value="<%= prc.prc_nazwisko%>" 
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorprc_nazwisko" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('prc_nazwisko'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('prc_nazwisko')).message %>
+                    <% } %>
+            </span>
+
+            <label for="prc_dataUrodzenia">Data urodzenia: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('prc_dataUrodzenia')) ? 'error-input' : '' %>"  type="date"
+            name="prc_dataUrodzenia" min="1930-06-07" max="2100-10-10" id="prc_dataUrodzenia" value="<%= (formMode=='edit' || formMode=='showDetails') ? prc.prc_dataUrodzenia.toISOString().split('T')[0] : prc.prc_dataUrodzenia%>" 
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorprc_dataUrodzenia" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('prc_dataUrodzenia'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('prc_dataUrodzenia')).message %>
+                    <% } %>
+            </span>
+
+            <label for="prc_stanowisko">Stanowisko: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('prc_stanowisko')) ? 'error-input' : '' %>" type="text" name="prc_stanowisko" id ="prc_stanowisko" placeholder="2-100 znaków" value="<%= prc.prc_stanowisko%>" 
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorprc_stanowisko" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('prc_stanowisko'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('prc_stanowisko')).message %>
+                    <% } %>
+            </span>                    
+            
+            <label for="prc_stanCywilny">Stan cywilny:</label>
+            <input class="<%= validationErrors.find(e => e.path.includes('prc_stanCywilny')) ? 'error-input' : '' %>" type="text" name=prc_stanCywilny id=prc_stanCywilny placeholder="2-100 znaków" value="<%= prc.prc_stanCywilny%>" 
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+             <span id="errorprc_stanCywilny" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('prc_stanCywilny'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('prc_stanCywilny')).message %>
+                    <% } %>
+            </span>    
+                                  
+            <label for="mag_id">Magazyn: <span class="symbol-required">*</span></label> 
+           <select name="mag_id" id="mag_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+               <option value="">-- Wybierz magazyn --</option>
+               <% if(allMagazyny) {for (let i=0; i<allMagazyny.length; i++) { let mag = allMagazyny[i]; %>
+                   <option value="<%= mag.mag_id %>" label="<%= mag.mag_kod %>" 
+                       <%= (mag.mag_id == prc.mag_id ) ? 'selected' : ''%>></option>
+               <% } } %>       
+           </select> 
+           <span id="errormag_id" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('mag_id'))) { %>
+                <%= validationErrors.find(e => e.path.includes('mag_id')).message %>
+                <% } %>
+            </span>
+
+            <label for="frm_id">Firma: <span class="symbol-required">*</span></label>
+            <select name="frm_id" id="frm_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+                <option value="">-- Wybierz firmę --</option>
+                <% if(allFirmy) {for (let i=0; i<allFirmy.length; i++) { let frm = allFirmy[i]; %>
+                    <option value="<%= frm.frm_id %>" label="<%= frm.frm_nazwa %>" 
+                        <%= (frm.frm_id == prc.frm_id ) ? 'selected' : ''%>></option>
+                <% } }%>       
+            </select>
+            <span id="errorfrm_id" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('frm_id'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('frm_id')).message %>
+                    <% } %>
+                </span>  
+            
+        <div class="form-buttons">
+            <p id="errorsSummary" class="error-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/employees">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/employees">Powrót</a>
+            <% } %>
+        </div>
+</form>
+
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

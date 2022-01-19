@@ -1,0 +1,104 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <script type="application/javascript" src="/js/validationFirmaForm.js"></script>
+            <h2><%= pageTitle %></h2>            
+            <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();">
+                <input type="hidden" name="frm_id" value="<%= frm.frm_id%>">    
+                
+                <label for="frm_nazwa">Nazwa firmy: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_nazwa')) ? 'error-input' : '' %>" type="text" name="frm_nazwa" id ="frm_nazwa" placeholder="2-150 znaków" value="<%= frm.frm_nazwa%>" 
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorfrm_nazwa" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('frm_nazwa'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('frm_nazwa')).message %>
+                        <% } %>
+                </span>
+                <label for="frm_adres">Adres firmy: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_adres')) ? 'error-input' : '' %>" type="text" name="frm_adres" id ="frm_adres" placeholder="2-150 znaków" value="<%= frm.frm_adres%>" 
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorfrm_adres" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('frm_adres'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('frm_adres')).message %>
+                        <% } %>
+                </span>
+
+                <label for="frm_kodP">Kod pocztowy: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_kodP')) ? 'error-input' : '' %>" type="text" name="frm_kodP" id ="frm_kodP" placeholder="2-20 znaków" value="<%= frm.frm_kodP%>" 
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorfrm_kodP" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('frm_kodP'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('frm_kodP')).message %>
+                        <% } %>
+                </span>
+
+                <label for="frm_miasto">Miasto: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_miasto')) ? 'error-input' : '' %>" type="text" name="frm_miasto" id ="frm_miasto"  placeholder="2-150 znaków" value="<%= frm.frm_miasto%>" 
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorfrm_miasto" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('frm_miasto'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('frm_miasto')).message %>
+                        <% } %>
+                </span>
+
+                <label for="frm_krajPrefix">Prefiks kraju: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_krajPrefix')) ? 'error-input' : '' %>" type="text" name="frm_krajPrefix" id ="frm_krajPrefix"  placeholder="2-5 znaków" value="<%= frm.frm_krajPrefix%>" 
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorfrm_krajPrefix" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('frm_krajPrefix'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('frm_krajPrefix')).message %>
+                        <% } %>
+                </span>
+
+                <label for="frm_prezes">Prezes firmy: </label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_prezes')) ? 'error-input' : '' %>" type="text" name="frm_prezes" id ="frm_prezes"  placeholder="2-150 znaków" value="<%= frm.frm_prezes%>" 
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorfrm_prezes" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('frm_prezes'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('frm_prezes')).message %>
+                        <% } %>
+                </span>
+
+                <div class="form-buttons">
+                    <p id="errorsSummary" class="error-text"></p>
+                    <% if (formMode != 'showDetails') { %>
+                                                
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                        <a class="form-button-cancel" href="/companies">Anuluj</a>            
+                    <% } else { %>
+                        
+                        <a class="form-button-cancel" href="/companies">Powrót</a>
+                    <% } %>
+                </div> <p> </p>     
+
+                <% if (formMode == 'showDetails' || formMode == 'edit') {%>
+                    <h2>
+                        Lista Magazynierów
+                    </h2>                    
+                    <table class="table-Prac">
+                        <thead>
+                            <tr>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Data urodzenia</th>
+                                <th>Stanowisko</th>
+                                <th>Stan Cywilny</th>
+                                <th>Magazyn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% if(frm.pracownicy) for (let p of frm.pracownicy) { %>
+                            <tr>
+                                <td><a href="/employees/details/<%= p.prc_id %>"><%= p.prc_imie %></a></td>
+                                <td><%= p.prc_nazwisko %></td>
+                                <td><%= p.prc_dataUrodzenia.toISOString().split('T')[0] %></td>
+                                <td><%= p.prc_stanowisko %></td>
+                                <td><%= p.prc_stanCywilny %></td>                                
+                                <td><%= p.magazyn.mag_nazwa %></td> 
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+            </form>
+        </main>
+        <%- include('../../fragments/footer.ejs') %>

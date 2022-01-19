@@ -1,0 +1,140 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <script type="application/javascript" src="/js/validationMagazynForm.js"></script>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%=formAction%>"  >
+            <!-- onsubmit="return validateForm();" -->
+            <input type="hidden" name="mag_id" value="<%= mag.mag_id%>">    
+
+            <label for="mag_kod">Kod magazynu: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_kod')) ? 'error-input' : '' %>" type="text" name="mag_kod" id ="mag_kod" placeholder="2-25 znaków" value="<%= mag.mag_kod%>" 
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_kod" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_kod'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_kod')).message %>
+                    <% } %>
+            </span>
+            
+
+            <label for="mag_nazwa">Nazwa magazynu: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_nazwa')) ? 'error-input' : '' %>" type="text" name="mag_nazwa" id ="mag_nazwa" placeholder="2-100 znaków" value="<%= mag.mag_nazwa%>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_nazwa" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_nazwa'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_nazwa')).message %>
+                    <% } %>
+            </span>
+            
+
+            <label for="mag_krajPrefix">Prefiks Kraju(ISO): <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_krajPrefix')) ? 'error-input' : '' %>" type="text" name="mag_krajPrefix" id ="mag_krajPrefix" placeholder="2-5 znaków" value="<%= mag.mag_krajPrefix%>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_krajPrefix" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_krajPrefix'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_krajPrefix')).message %>
+                    <% } %>
+            </span>
+            
+
+            <label for="mag_powierzchnia">Powierzchnia: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_powierzchnia')) ? 'error-input' : '' %>" type="number" name="mag_powierzchnia" id ="mag_powierzchnia" placeholder="liczba całkowita dodatnia" value="<%= mag.mag_powierzchnia%>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_powierzchnia" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_powierzchnia'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_powierzchnia')).message %>
+                    <% } %>
+            </span>
+            
+            
+            <label for="mag_iloscRegalow">Ilość regałów: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_iloscRegalow')) ? 'error-input' : '' %>" type="number" name="mag_iloscRegalow" id ="mag_iloscRegalow" placeholder="liczba całkowita dodatnia" value="<%= mag.mag_iloscRegalow%>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_iloscRegalow" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_iloscRegalow'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_iloscRegalow')).message %>
+                    <% } %>
+            </span>
+            
+            
+            <label for="mag_iloscPolozen">Ilość położeń: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_iloscPolozen')) ? 'error-input' : '' %>" type="number" name="mag_iloscPolozen" id ="mag_iloscPolozen" placeholder="liczba całkowita dodatnia" value="<%= mag.mag_iloscPolozen%>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_iloscPolozen" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_iloscPolozen'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_iloscPolozen')).message %>
+                    <% } %>
+            </span>
+            
+            
+            <label for="mag_iloscWozkow">Ilość wózków: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_iloscWozkow')) ? 'error-input' : '' %>" type="number" name="mag_iloscWozkow" id ="mag_iloscWozkow" placeholder="liczba całkowita dodatnia" value="<%= mag.mag_iloscWozkow%>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_iloscWozkow" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_iloscWozkow'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_iloscWozkow')).message %>
+                    <% } %>
+            </span>
+            
+            
+            <label for="mag_iloscHal">Ilość Hal: <span class="symbol-required">*</span></label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_iloscHal')) ? 'error-input' : '' %>" type="number" name="mag_iloscHal" id ="mag_iloscHal" placeholder="liczba całkowita dodatnia" value="<%= mag.mag_iloscHal%>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_iloscHal" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_iloscHal'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_iloscHal')).message %>
+                    <% } %>
+            </span>
+            
+            
+            <label for="mag_iloscSkanerow">Ilość Skanerów:</label>
+            <input class="<%= validationErrors.find(e => e.path.includes('mag_iloscSkanerow')) ? 'error-input' : '' %>" type="number" name="mag_iloscSkanerow" id ="mag_iloscSkanerow" placeholder="liczba całkowita dodatnia" value="<%= mag.mag_iloscSkanerow%>"
+            <!-- <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errormag_iloscSkanerow" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('mag_iloscSkanerow'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('mag_iloscSkanerow')).message %>
+                    <% } %>
+            </span> 
+            
+            <div class="form-buttons">
+                <p id="errorsSummary" class="error-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                    <a class="form-button-cancel" href="/warehouses">Anuluj</a>            
+                <% } else { %>
+                    
+                    <a class="form-button-cancel" href="/warehouses">Powrót</a>
+                <% } %>
+            </div> <p> </p>         
+                <% if (formMode == 'showDetails' || formMode == 'edit') {%>
+                    <h2>
+                        Lista Magazynierów
+                    </h2>                    
+                    <table class="table-Prac">
+                        <thead>
+                            <tr>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Data urodzenia</th>
+                                <th>Stanowisko</th>
+                                <th>Stan Cywilny</th>
+                                <th>Firma</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <%if(mag.pracownicy)  for (let p of mag.pracownicy) { %>
+                            <tr>
+                                <td><a href="/employees/details/<%= p.prc_id %>"><%= p.prc_imie %></a></td>
+                                <td><%= p.prc_nazwisko %></td>
+                                <td><%= p.prc_dataUrodzenia.toISOString().split('T')[0] %></td>
+                                <td><%= p.prc_stanowisko %></td>
+                                <td><%= p.prc_stanCywilny %></td>                                
+                                <td><%= p.firma.frm_nazwa %></td> 
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

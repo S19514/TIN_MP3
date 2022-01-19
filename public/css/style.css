@@ -1,0 +1,559 @@
+html{
+    background-color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+    min-width: 360px;
+}
+header,
+main,
+footer{
+    background-color:rgb(21, 107, 181);
+    color: honeydew;
+}
+
+header,
+main,
+footer,
+nav{
+    margin: 0.5rem;
+}
+header,
+footer{
+    background-color:rgb(21, 107, 181);
+    color:honeydew;
+    padding: 0.8rem;
+}
+/* header{ komentarz
+    overflow: auto;
+}
+header h1{
+    float:right;
+}
+header img{
+    float:left;
+} */
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+nav{
+ 
+    background-color:rgb(21, 107, 181) ;
+    
+}
+nav ul{
+    padding: 0;
+    /* overflow: hidden; */
+    list-style-type: none;
+    display: flex;
+    list-style-type: none;
+
+}
+nav ul li{
+    float: left;
+    /* list-style-type: none; */
+   
+}
+nav ul li a{
+    display: inline-block;
+    color: white;
+     padding: 1rem 2rem; 
+    text-decoration: none;
+    /* background-color: rgb(21, 107, 181); */
+    background-color: rgb(21, 107, 181);
+   
+   
+}
+nav ul li a:hover{
+    display: inline-block;
+    color: black;
+    padding: 1rem 2rem;
+    text-decoration: none;
+}
+
+nav ul li a:active{
+    background-color: rgb(9, 130, 236);
+    color:rgb(16, 38, 56) ;
+    
+}
+
+p{
+    color: black;
+    font-style:normal;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main{
+    padding: 1.5rem;
+}
+footer{
+    text-align: center;
+}
+main h2{
+    border-bottom: 1px solid white;
+    margin-bottom: 2rem;
+}
+main h3{
+    border-bottom: 0.5px solid white;
+    margin-bottom: 1rem;
+}
+.table-list{
+    border-collapse: collapse;
+    color: white ;
+    font-weight: bold;
+    width: 100%;
+    resize: both;
+    overflow: auto;
+}
+.table-list,
+.table-list th,
+.table-list td{
+    border: 1px solid white;
+    
+}
+.table-list th,
+.table-list td{
+    padding: 0.3rem;
+}
+.table-list th,
+.table-list tbody tr:nth-child(even){
+    background-color: lightgray;
+     color: black; 
+     font-weight: bold;
+}
+
+.table-Mag,
+.table-Firm,
+.table-Prac{
+    border-collapse: collapse;
+    color: white ;
+    font-weight: bold;
+    width: 30%;
+    resize: both;
+    overflow: auto;
+}
+.table-Firm,
+.table-Firm th,
+.table-Firm td,
+.table-Prac,
+.table-Prac th,
+.table-Prac td,
+.table-Mag,
+.table-Mag th,
+.table-Mag td{
+    border: 0.1px solid white;
+    
+}
+.table-Mag th,
+.table-Mag td,
+.table-Prac th,
+.table-Prac td,
+.table-Firm th,
+.table-Firm td{
+    padding: 0.1rem;
+}
+.table-Mag th,
+.table-Mag tbody tr:nth-child(even),
+.table-Prac th,
+.table-Prac tbody tr:nth-child(even),
+.table-Firm th,
+.table-Firm tbody tr:nth-child(even){
+    background-color: lightgray;
+     color: black; 
+     font-weight: bold;
+}
+.list-actions
+{
+    margin: 0;
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+}
+.list-actions li{
+    display: inline-block;
+}
+
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete{
+    display: inline-block;  
+    width: 75px;
+    padding: 0.25rem 1rem;
+}
+
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete{
+    border: none;  
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.list-actions-button-details,
+.list-actions-button-edit{
+margin-right: 1rem;
+}
+
+.list-actions-button-details{
+    background-color: forestgreen;
+}
+
+.list-actions-button-details:hover{
+background-color: darkgreen;
+}
+
+.list-actions-button-edit{
+    background-color: rgba(255, 166, 0, 0.822);
+}
+
+.list-actions-button-edit:hover{
+background-color: rgba(255, 140, 0, 0.774);
+}
+.list-actions-button-delete{
+    background-color: red;
+}
+
+.list-actions-button-delete:hover{
+background-color: darkred;
+}
+li{
+    list-style-type: none;
+}
+
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete,
+.button-return,
+.button-edit,
+.button-add {
+    border: none;  
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+    
+}
+.button-add{
+    background-color: green;
+    padding: 0.5rem;
+}
+.button-add:hover{
+    background-color: darkgreen;
+}
+.button-return{
+    background-color: red;
+    padding: 0.5rem;
+}
+.button-return:hover{
+    background-color: darkred;
+}
+
+.button-edit{
+    background-color: orange;
+    padding: 0.5rem;
+}
+.button-edit:hover{
+    background-color: darkorange;
+}
+/* tutaj wyłączam hrefy */
+a.disabled {
+    /* pointer-events: none; */
+    cursor: default;
+    background-color: #06296b;
+  }
+  button,
+  input,
+  select,
+  textarea{
+      font-family: inherit;
+      font-size: 100%;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+  }
+  textarea{
+      overflow: auto;
+      width: 100%;
+  }
+  .form{
+      margin-left: 2rem;
+      margin-right: 2rem;
+      /* width: 300px; */
+      display: grid;
+      grid-template-columns:  150px 300px 1fr;
+      gap: 1rem;
+  }
+  .form select,
+  .form input[type="text"],
+  .form input[type="number"],
+  .form input[type="date"],
+  .form input[type="email"]{
+      border: 1px solid #7f8c8d;
+      color:#2c3e50;
+      border-radius: 5px;
+      padding: 0.5rem;
+      width: 100%;
+  }
+  .form label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5em;      
+  }
+  .errors-txt,
+  .symbol-required{
+      color: red;
+  }
+  .form-buttons{
+      /* margin-top:  2rem; */
+      grid-column:  1 / span 2;
+  }
+  .list-actions-button-details,
+  .list-actions-button-edit,
+  .list-actions-button-delete,
+  .button-add,
+  .form-button-submit,
+  .form-button-cancel{
+    border: none;
+    border-radius: 5px;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 00.8rem;
+  }
+
+  .button-add,
+  .form-button-submit,
+  .form-button-cancel{
+padding: 0.5rem 1rem;  
+}
+.form-editbtns {
+    margin-top: 1rem;
+    margin-right: 2rem;
+    display: grid;
+    grid-template-columns: 200px;
+    
+}
+
+.button-add,
+  .form-button-submit{
+      background-color: green;
+  }
+  .button-add:hover,
+  .form-button-submit:hover{
+      background-color: yellowgreen;
+  }
+  .form-button-cancel,
+  .list-actions-button-delete{
+      background-color: red;
+  }
+  .form-button-cancel:hover,
+  .list-actions-button-delete:hover{
+      background-color: darkred;
+  }
+  .form-button-submit,
+  .form-button-cancel{
+      width:  100%;
+  } 
+  .form-button-cancel{
+    box-sizing:  border-box;
+    display: block;
+}
+.form-button-submit{
+    margin-bottom: 0.5rem;
+}
+
+.form input.error-input,
+.form select.error-input{
+    border: 3px solid red
+}
+.errors-text{
+    display: block;
+    font-size: 0.85em;
+    line-height: 2.25rem;
+    margin-top: 0.5em;
+    color: red;
+}
+ li a.current{
+    color: white;
+    background:#06296b;
+ }
+  .li-border {
+    border-radius: 30px;        
+  border: 1px solid white;
+  padding: 10px;
+
+    } 
+@media all and (max-width:720px) { 
+header{
+    flex-direction: column;
+}
+header h1{
+    text-align: center;
+}
+header img{
+    align-self: center;
+}
+
+}
+@media all and (max-width:400px){
+    body,
+    nav,
+    nav ul,
+    header,
+    main,
+    /* ::-moz-focus-outer{ */
+    footer{
+        margin: 0;
+    }
+    .list-actions-button-details,
+    .list-actions-button-edit,
+    .list-actions-button-delete {
+        padding: 0.15rem 0.15rem;
+        margin-right: 0;
+    }
+}
+@media all and (max-width:900px) {
+    .table-Mag td:nth-of-type(3),
+    .table-Mag th:nth-of-type(3){
+        display: none;
+    }
+}
+@media all and (max-width:800px) {
+    .table-Mag td:nth-of-type(4),
+    .table-Mag th:nth-of-type(4),
+    .table-Mag td:nth-of-type(9),
+    .table-Mag th:nth-of-type(9), 
+    .table-Firm td:nth-of-type(3),
+    .table-Firm th:nth-of-type(3){
+        display: none;
+    }
+}
+
+@media all and (max-width:720px) {
+    nav ul {
+    flex-wrap: wrap;
+    }
+    nav ul li {
+        flex-basis: 50%;
+        text-align: center;
+    }
+    nav ul li a {
+        display:block;
+    }
+    .form {
+        grid-template-columns: 1fr;
+        row-gap: unset;
+        margin-left: unset;
+    }
+    .form-buttons{
+        grid-column: 1 / span 2;
+    }
+
+    .table-list{
+        border-collapse: collapse;
+        color: white ;
+        font-weight: normal;
+        width: 30%;
+        resize: both;
+        overflow: auto;
+    }
+    .table-list,
+    .table-list th,
+    .table-list td{
+        border: 0.1px solid white;
+        
+    }
+    .table-list th,
+    .table-list td{
+        padding: 0.1rem;
+    }
+    .table-list th,
+    .table-list tbody tr:nth-child(even){
+        background-color: lightgray;
+         color: black; 
+         font-weight: normal;
+    }
+
+    .table-Mag,
+    .table-Firm,
+    .table-Prac{
+        border-collapse: collapse;
+        color: white ;
+        font-weight: normal;
+        width: 30%;
+        resize: both;
+        overflow: auto;
+    }
+    .table-Firm,
+    .table-Firm th,
+    .table-Firm td,
+    .table-Prac,
+    .table-Prac th,
+    .table-Prac td,
+    .table-Mag,
+    .table-Mag th,
+    .table-Mag td{
+        border: 0.1px solid white;
+        
+    }
+    .table-Mag th,
+    .table-Mag td,
+    .table-Prac th,
+    .table-Prac td,
+    .table-Firm th,
+    .table-Firm td{
+        padding: 0.1rem;
+    }
+    .table-Mag th,
+    .table-Mag tbody tr:nth-child(even)
+    .table-Prac th,
+    .table-Prac tbody tr:nth-child(even)
+    .table-Firm th,
+    .table-Firm tbody tr:nth-child(even){
+        background-color: lightgray;
+         color: black; 
+         font-weight: normal;
+    }
+    
+    
+    .table-Mag td:nth-of-type(5),
+    .table-Mag th:nth-of-type(5),
+    .table-Mag td:nth-of-type(6),
+    .table-Mag th:nth-of-type(6),
+    .table-Mag td:nth-of-type(7),
+    .table-Mag th:nth-of-type(7), 
+    .table-Firm td:nth-of-type(5),
+    .table-Firm th:nth-of-type(5),
+    .table-Prac td:nth-of-type(3),
+    .table-Prac th:nth-of-type(3){
+        display: none;
+    }
+
+}
+@media all and (max-width:400px) {
+    nav ul li {
+     flex-basis: 100%;   
+    }
+    
+
+   
+    .table-Mag th:nth-of-type(8),
+    .table-Mag td:nth-of-type(8),
+    .table-Firm td:nth-of-type(6),
+    .table-Firm th:nth-of-type(6),
+    .table-Firm td:nth-of-type(4),
+    .table-Firm th:nth-of-type(4),
+    .table-Prac td:nth-of-type(5),
+    .table-Prac th:nth-of-type(5),
+    .table-Prac td:nth-of-type(1),
+    .table-Prac th:nth-of-type(1){
+        display: none;
+    }
+}

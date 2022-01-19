@@ -1,0 +1,47 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Lista Firm</h2>
+        <table class="table-Firm">
+           <thead>  
+               <tr>
+                    <th>Nazwa</th>
+                    <th>Adres</th>
+                    <th>Kod Pocztowy</th>
+                    <th>Miasto</th>
+                    <th>Prefiks kraju(ISO)</th>
+                    <th>Prezes</th>                 
+                    <th>Akcje</th>
+                </tr>             
+           </thead>
+           <tbody>
+            <% for (let frm of firmy) { %>
+               <tr>
+                   <td><%= frm.frm_nazwa %></td>
+                   <td><%= frm.frm_adres %></td>
+                   <td><%= frm.frm_kodP %></td>
+                   <td><%= frm.frm_miasto %></td>
+                   <td><%= frm.frm_krajPrefix %></td>
+                   <td><%= frm.frm_prezes %></td>                   
+                   <td>
+                    <ul>
+                        <li>
+                            <a href="/companies/details/<%=frm.frm_id%>" class="list-actions-button-details">Szczegóły</a>
+                        </li>
+                        <li>
+                            <a href="/companies/edit/<%=frm.frm_id%>" class="list-actions-button-edit ">Edytuj</a>
+                        </li>
+                        <li>
+                            <a href="/companies/delete/<%=frm.frm_id%>" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+               </tr>
+               <% } %>
+           </tbody>
+        </table>   
+         <form class="form-editbtns">
+            <a href="companies/add" class="button-add">Dodaj nową firmę</a> 
+            <a href="/" class="button-return">Wróć na stronę główną</a>
+        </form> 
+    </main>
+    <%- include('../../fragments/footer.ejs') %>
