@@ -58,3 +58,8 @@ exports.deletePracownik = (pracownikId) => {
 exports.deleteWieluPracownikow = (pracownikIdki) => {
     return Pracownik.find({ prc_id: { [Sequelize.Op.in]: pracownikIdki }})
 }
+exports.findByCredentials = (imie,nazwisko) =>  {
+    return Pracownik.findOne({
+        where: {prc_imie: imie,prc_nazwisko: nazwisko }
+    });
+}

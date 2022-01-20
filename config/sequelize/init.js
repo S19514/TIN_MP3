@@ -55,9 +55,9 @@ return sequelize
     .then( pracownicy => {        
         if( !pracownicy || pracownicy.length == 0 ) {
             return Pracownik.bulkCreate([                                
-                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[0].mag_id, prc_imie: 'Krzysztof', prc_nazwisko: 'Jurkowski', prc_dataUrodzenia: '1997-03-03', prc_stanowisko: 'wózkowy', prc_stanCywilny: null},
-                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[1].mag_id, prc_imie: 'Tomasz', prc_nazwisko: 'Krasieńko', prc_dataUrodzenia: '1998-01-28', prc_stanowisko: 'Mid Programista ERP', prc_stanCywilny: 'Żonaty'},
-                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[2].mag_id, prc_imie: 'Jakub', prc_nazwisko: 'Michalak', prc_dataUrodzenia: '1997-05-01', prc_stanowisko: 'Senior Programista ERP', prc_stanCywilny: 'Żonaty'}
+                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[0].mag_id, prc_imie: 'Krzysztof', prc_nazwisko: 'Jurkowski', prc_dataUrodzenia: '1997-03-03', prc_stanowisko: 'wózkowy', prc_stanCywilny: null, password: '12345'},
+                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[1].mag_id, prc_imie: 'Tomasz', prc_nazwisko: 'Krasieńko', prc_dataUrodzenia: '1998-01-28', prc_stanowisko: 'Mid Programista ERP', prc_stanCywilny: 'Żonaty', password: '12345'},
+                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[2].mag_id, prc_imie: 'Jakub', prc_nazwisko: 'Michalak', prc_dataUrodzenia: '1997-05-01', prc_stanowisko: 'Senior Programista ERP', prc_stanCywilny: 'Żonaty', password: '12345'}
             ]);
             
         } else {                    

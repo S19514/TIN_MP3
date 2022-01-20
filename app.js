@@ -21,6 +21,22 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+const session = require('express-session');
+app.use(session({
+  secret: 'my_secret_password',
+  resave: false,
+  saveUninitialized: true // in case of problems delete it. Its not included in tutorial
+}));
+
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if(!res.locals.loginError) {
+    res.locals.loginError = undefined;
+  }
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,6 +51,7 @@ app.use('/companies',companyController);
 const magApiRouter = require('./routes/api/MagazynApiRoute');
 const frmApiRouter = require('./routes/api/FirmaApiRoute');
 const prcApiRouter = require('./routes/api/PracownikApiRoute');
+const { ne } = require('sequelize/dist/lib/operators');
 
 app.use('/api/warehouses', magApiRouter);
 app.use('/api/companies',frmApiRouter);

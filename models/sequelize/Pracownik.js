@@ -101,6 +101,11 @@ const Pracownik = sequelize.define('Pracownik',
                 msg: "Wartość jest zbyt duża"
             } 
     }
+},
+password: {
+    type: Sequelize.STRING,
+    allowNull: false
 }
+
 });
 module.exports = Pracownik;

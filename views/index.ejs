@@ -3,4 +3,27 @@
         <h2>Strona główna</h2>
         <p>Twój lider w zakresie ewidencji logistyki magazynowej</p>
     </main>
+    
+<% if(!loggedUser) { %>
+    <div id ="login">
+        <h5>Logowanie</h5>
+        <form method="post" action="/login" novalidate>
+            <label for="imie">Imie:</label>
+            <input type="imie" id="imie" name="imie">
+
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="nazwisko" id="nazwisko" name="nazwisko"> 
+
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password"> 
+            <input type="submit" value="Zaloguj się">
+            <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+        </form>
+    </div>
+    <% } else { %>
+        <span> Jesteś zalogowany jako: <%=loggedUser.prc_imie + " " + loggedUser.prc_nazwisko%></span>
+        <a href="/logout">Wyloguj się</a> 
+        <% } %>
+
+
     <%- include('./fragments/footer.ejs') %>
