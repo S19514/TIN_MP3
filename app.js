@@ -37,6 +37,7 @@ app.use((req, res, next) => {
   next();
 });
 
+const authUtils = require('../TIN_MP3/util/authUtils.js');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -44,9 +45,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/employees', employeeRouter);
-app.use('/warehouses',warehouseRouter);
-app.use('/companies',companyController);
+app.use('/employees',authUtils.permitAuthenticatedUser, employeeRouter);
+app.use('/warehouses',authUtils.permitAuthenticatedUser,warehouseRouter);
+app.use('/companies',authUtils.permitAuthenticatedUser,companyController);
 
 const magApiRouter = require('./routes/api/MagazynApiRoute');
 const frmApiRouter = require('./routes/api/FirmaApiRoute');

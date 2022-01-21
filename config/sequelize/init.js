@@ -3,6 +3,8 @@ const sequelize = require('./sequelize');
 const Pracownik = require('../../models/sequelize/Pracownik');
 const Firma = require('../../models/sequelize/Firma');
 const Magazyn = require('../../models/sequelize/Magazyn');
+const authUtil = require('../../util/authUtils.js');
+const passHash = authUtil.hashPassword('12345');
 
 module.exports = () => {
     Magazyn.hasMany(Pracownik, {as:'pracownicy', foreignKey: {name: 'mag_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'})
@@ -55,9 +57,9 @@ return sequelize
     .then( pracownicy => {        
         if( !pracownicy || pracownicy.length == 0 ) {
             return Pracownik.bulkCreate([                                
-                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[0].mag_id, prc_imie: 'Krzysztof', prc_nazwisko: 'Jurkowski', prc_dataUrodzenia: '1997-03-03', prc_stanowisko: 'wózkowy', prc_stanCywilny: null, password: '12345'},
-                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[1].mag_id, prc_imie: 'Tomasz', prc_nazwisko: 'Krasieńko', prc_dataUrodzenia: '1998-01-28', prc_stanowisko: 'Mid Programista ERP', prc_stanCywilny: 'Żonaty', password: '12345'},
-                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[2].mag_id, prc_imie: 'Jakub', prc_nazwisko: 'Michalak', prc_dataUrodzenia: '1997-05-01', prc_stanowisko: 'Senior Programista ERP', prc_stanCywilny: 'Żonaty', password: '12345'}
+                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[0].mag_id, prc_imie: 'Krzysztof', prc_nazwisko: 'Jurkowski', prc_dataUrodzenia: '1997-03-03', prc_stanowisko: 'wózkowy', prc_stanCywilny: null, password: passHash},
+                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[1].mag_id, prc_imie: 'Tomasz', prc_nazwisko: 'Krasieńko', prc_dataUrodzenia: '1998-01-28', prc_stanowisko: 'Mid Programista ERP', prc_stanCywilny: 'Żonaty', password: passHash},
+                { frm_id: wszystkieFirmy[0].frm_id, mag_id: wszystkieMagazyny[2].mag_id, prc_imie: 'Jakub', prc_nazwisko: 'Michalak', prc_dataUrodzenia: '1997-05-01', prc_stanowisko: 'Senior Programista ERP', prc_stanCywilny: 'Żonaty', password: passHash}
             ]);
             
         } else {                    

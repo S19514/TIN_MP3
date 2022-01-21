@@ -1,4 +1,5 @@
 const PracownikRepository = require('../repository/sequelize/PracownikRepository');
+const authUtil = require('../util/authUtils.JS');
 
 exports.login = (req, res, next) => {
     const imie = req.body.imie;
@@ -11,7 +12,7 @@ exports.login = (req, res, next) => {
                     navLocation: '',
                     loginError: "Nieprawidłowe dane logowania"
                 })
-            } else if(prc.password === password) {
+            } else if(authUtil.comparePasswords(password,prc.password) === true) {
                 req.session.loggedUser = prc;
                 res.redirect('/');
             } else {
