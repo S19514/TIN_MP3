@@ -18,7 +18,7 @@ function checkRequired(value)
     }
     if(value =="-- Wybierz odpowiednie --")
         return false;
-
+        
     value = value.toString().trim();
     if(value === "")
     {

@@ -41,7 +41,8 @@ exports.createPracownik = (data) => {
         prc_stanowisko: data.prc_stanowisko,
         prc_stanCywilny: data.prc_stanCywilny,
         frm_id: data.mag_id,
-        mag_id: data.frm_id
+        mag_id: data.frm_id,
+        password: data.password
     });
 };
 

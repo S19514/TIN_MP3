@@ -6,6 +6,7 @@ function validateForm(){
     const civilStateInput = document.getElementById('prc_stanCywilny');
     const wareHouseInput = document.getElementById('mag_id');    
     const companyInput = document.getElementById('frm_id');
+    const passwordInput = document.getElementById('password');
 
     const errorFirstName = document.getElementById('errorprc_imie');
     const errorLastName = document.getElementById('errorprc_nazwisko');
@@ -14,6 +15,7 @@ function validateForm(){
     const errorWareHouse = document.getElementById('errormag_id');
     const errorCivilState = document.getElementById("errorprc_stanCywilny");
     const errorCompany = document.getElementById('errorfrm_id');
+    const errorPassword = document.getElementById('errorpassword');
   //  const errorsSummary = document.getElementById('errorsSummary');
     
     resetErrors([firstNameInput
@@ -22,13 +24,15 @@ function validateForm(){
                 ,workplaceInput
                 ,civilStateInput
                 ,wareHouseInput
-                ,companyInput]
+                ,companyInput
+                ,passwordInput]
                 ,[errorFirstName
                 ,errorLastName
                 ,errorBirthDate
                 ,errorWorkplace
                 ,errorWareHouse
-                ,errorCompany]
+                ,errorCompany
+                ,errorPassword]
                 ,errorsSummary);
     let valid = true;
 
@@ -57,6 +61,22 @@ function validateForm(){
         errorFirstName.classList.add("errors-text");
         errorFirstName.innerText = "Pole powinno zawierać od 2 do 150 znaków client";
     }
+
+    if(!checkRequired(passwordInput.value))
+    {
+        valid = false;
+        passwordInput.classList.add("error-input");
+        errorPassword.classList.add("errors-text");
+        errorPassword.innerText = "Pole jest wymagane client";
+    }
+    else if(!checkTextLengthRange(passwordInput.value,2,150))
+    {
+        valid = false;
+        passwordInput.classList.add("error-input");
+        errorPassword.classList.add("errors-text");
+        errorPassword.innerText = "Pole powinno zawierać od 2 do 150 znaków client";
+    }
+
     if(!checkRequired(lastNameInput.value))
     {
         valid = false;

@@ -1,6 +1,9 @@
 const MagazynRepository = require('../repository/sequelize/MagazynRepository');
 const PracownikRepository = require('../repository/sequelize/PracownikRepository');
 const FirmaRepository = require('../repository/sequelize/FirmaRepository');
+const authUtil = require('../util/authUtils.js'); //require('../../util/authUtils.js');
+
+
 
 exports.showEmployeeList = (req, res, next) => {
     PracownikRepository.getPracownicy()
@@ -90,12 +93,13 @@ exports.showEmployeeDetails = (req,res,next) => {
                 allFirmy: allFirmy,
                 validationErrors: []            
             });
-        });
-    
+        }); 
 }
 exports.addEmployee = (req, res, next) => {
     const empData = { ...req.body };
- 
+    console.log(empData.password);
+    const passHash = authUtil.hashPassword(empData.password);
+    empData.password = passHash;
     let allMagazyny, allFirmy;
     MagazynRepository.getMagazyny()
     .then( mag => {
@@ -124,10 +128,13 @@ exports.addEmployee = (req, res, next) => {
             });
         });
 };
-//console log test git 123 local changes
+
 exports.updateEmployee = (req, res, next) => {
     const prcId = req.body.prc_id;
     const empData = { ...req.body };
+    console.log(empData.password);
+    const passHash = authUtil.hashPassword(empData.password);
+    empData.password = passHash;
 
     if(empData.prc_dataUrodzenia)
         empData.prc_dataUrodzenia = new Date(empData.prc_dataUrodzenia);
@@ -160,8 +167,6 @@ exports.updateEmployee = (req, res, next) => {
                 allFirmy: allFirmy,
                 validationErrors: err.errors                
             });
-           //  console.log('dupa '+err.errors.find(e => e.path.includes('prc.mag_id')));
-           console.log('dupa importante '+allMagazyny[0].mag_id );
         });
 };
 
