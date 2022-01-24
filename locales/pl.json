@@ -1,0 +1,76 @@
+{
+	"main-page": {
+		"content": "Strona główna"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"employees": "Pracownicy",
+		"warehouses": "Magazyny",
+		"companies": "Firmy"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		},
+		"validation": {
+			"chars": "znaków"
+		},
+		"selectField": {
+			"chooseWarehouse": "-- Wybierz magazyn --",
+			"chooseCompany": "-- Wybierz firmę --"
+		}
+	},
+	"prc": {
+		"fields": {
+			"prc_imie": "Imię",
+			"prc_nazwisko": "Nazwisko",
+			"prc_dataUrodzenia": "Data urodzenia",
+			"prc_stanowisko": "Stanowisko",
+			"prc_stanCywilny": "Stan Cywilny",
+			"magazyn": "Magazyn",
+			"firma": "Firma",
+			"password": "Hasło"
+		},
+		"list": {
+			"title": "Pracownicy",
+			"addNew": "Dodaj nowego pracownika",
+			"noData": "Brak pracowników w bazie",
+			"backToMainPage": "Wróć na stronę główną",
+			"pageTitle": "Lista pracowników"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodawanie pracownika",
+				"btnLabel": "Dodaj pracownika",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano pracownika"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja pracownika",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano pracownika"
+				}
+			}
+		}
+	},
+	"2-100 form": {
+		"validation": {
+			"chars": "2-100 form.validation.chars"
+		}
+	}
+}

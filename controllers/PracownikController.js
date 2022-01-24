@@ -27,8 +27,8 @@ exports.showAddEmployeeForm = (req,res,next) => {
             res.render('pages/pracownik/form', {
                 prc: {},
                 formMode: 'createNew',
-                pageTitle: 'Nowy pracownik',
-                btnLabel: 'Dodaj pracownika',
+                pageTitle: req.__('prc.form.add.pageTitle'), //'Nowy pracownik',
+                btnLabel: req.__('prc.form.add.btnLabel'),
                 formAction: '/employees/add',        
                 navLocation: 'prc',
                 allMagazyny: allMagazyny,
@@ -56,8 +56,8 @@ exports.showEditEmployeeForm = (req,res,next) => {
             res.render('pages/pracownik/form', { 
                 prc: prc,
                 formMode: 'edit',
-                pageTitle: 'Edycja pracownika',
-                btnLabel: 'Edytuj pracownika',
+                pageTitle: req.__('prc.form.edit.pageTitle'), //'Edycja pracownika',
+                btnLabel:  req.__('prc.form.edit.btnLabel'),
                 formAction: '/employees/edit',
                 navLocation: 'prc',
                 allMagazyny: allMagazyny,

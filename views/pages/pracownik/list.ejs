@@ -1,17 +1,17 @@
 <%- include('../../fragments/header.ejs') %>
     <main>
-        <h2>Lista Pracowników</h2>
+        <h2><%= __('prc.list.pageTitle') %></h2>
         <table class="table-Prac">
            <thead>
                <tr>
-               <th>Imię</th>
-               <th>Nazwisko</th>
-               <th>Data urodzenia</th>
-               <th>Stanowisko</th>
-               <th>Stan Cywilny</th>
-               <th>Magazyn</th>
-               <th>Firma</th>
-               <th>Akcje</th>
+               <th><%= __('prc.fields.prc_imie') %></th>
+               <th><%= __('prc.fields.prc_nazwisko') %></th>
+               <th><%= __('prc.fields.prc_dataUrodzenia') %></th>
+               <th><%= __('prc.fields.prc_stanowisko') %></th>
+               <th><%= __('prc.fields.prc_stanCywilny') %></th>
+               <th><%= __('prc.fields.magazyn') %></th>
+               <th><%= __('prc.fields.firma') %></th>
+               <th><%= __('list.actions.title') %></th>
             </tr>
            </thead>
            <tbody>
@@ -27,13 +27,13 @@
                    <td>
                     <ul>
                         <li>
-                            <a href="/employees/details/<%=prc.prc_id%>" class="list-actions-button-details">Szczegóły</a>
+                            <a href="/employees/details/<%=prc.prc_id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                         </li>
                         <li>
-                            <a href="/employees/edit/<%=prc.prc_id%>" class="list-actions-button-edit ">Edytuj</a>
+                            <a href="/employees/edit/<%=prc.prc_id%>" class="list-actions-button-edit "><%= __('list.actions.edit') %></a>
                         </li>
                         <li>
-                            <a href="/employees/delete/<%=prc.prc_id%>" class="list-actions-button-delete">Usuń</a>
+                            <a href="/employees/delete/<%=prc.prc_id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                         </li>
                     </ul>
                 </td>
@@ -42,8 +42,8 @@
            </tbody>
         </table>
         <form class="form-editbtns">
-            <a href="employees/add" class="button-add">Dodaj nowego pracownika</a>
-            <a href="/" class="button-return">Wróć na stronę główną</a>
+            <a href="employees/add" class="button-add"><%= __('prc.list.addNew') %></a>
+            <a href="/" class="button-return"><%= __('prc.list.backToMainPage') %></a>
          </form>        
         </main>
 <%- include('../../fragments/footer.ejs') %>
