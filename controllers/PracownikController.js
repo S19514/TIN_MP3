@@ -86,7 +86,7 @@ exports.showEmployeeDetails = (req,res,next) => {
             res.render('pages/pracownik/form', { 
                 prc: prc,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły pracownika',
+                pageTitle: req.__('prc.form.details.pageTitle'), //'Szczegóły pracownika',
                 formAction:'',
                 navLocation: 'prc',
                 allMagazyny: allMagazyny,

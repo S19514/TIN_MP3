@@ -1,12 +1,26 @@
 {
 	"main-page": {
-		"content": "Strona główna"
+		"content": "Strona główna",
+		"createdBy": "Tworzone przez",
+		"LoggingIn": "Zaloguj się",
+		"Name": "Imię",
+		"SecondName": "Nazwisko",
+		"Password": "Hasło",
+		"LogIn": "Zaloguj",
+		"LoggedAs": "Zalogowano jako",
+		"LogOut": "Wyloguj"
 	},
 	"nav": {
 		"main-page": "Strona główna",
 		"employees": "Pracownicy",
 		"warehouses": "Magazyny",
 		"companies": "Firmy"
+	},
+	"validationMessage": {
+		"fieldRequired": "Pole jest wymagane json",
+		"summaryErr": "Formularz zawiera błędy",
+		"NotInRange": "Nieprawidłowa ilość znaków",
+		"DateFromPast": "Data musi być z przeszłości"
 	},
 	"list": {
 		"actions": {
@@ -20,7 +34,8 @@
 		"actions": {
 			"return": "Powrót",
 			"edit": "Edytuj",
-			"cancel": "Anuluj"
+			"cancel": "Anuluj",
+			"dateLangaje": "pl-PL"
 		},
 		"validation": {
 			"chars": "znaków"
@@ -64,7 +79,10 @@
 				"confirm": {
 					"header": "Potwierdzenie operacji",
 					"text": "Pomyślnie zaktualizowano pracownika"
-				}
+				}								
+			},
+			"details": {
+				"pageTitle": "Szczegóły pracownika"
 			}
 		}
 	},
@@ -72,5 +90,9 @@
 		"validation": {
 			"chars": "2-100 form.validation.chars"
 		}
+	},
+	"header": {
+		"tittle": "LogiFirm - sieć firm logistycznych",
+		"credo": "Twój lider w zakresie ewidencji logistyki kontraktowej"
 	}
 }

@@ -1,25 +1,25 @@
         <footer>          
             <% if(!loggedUser) { %>
                 <div id ="login">
-                    <h5>Logowanie</h5>
+                    <h5><%= __('main-page.LoggingIn') %></h5>
                     <form method="post" action="/login" novalidate>
-                        <label for="imie">Imie:</label>
+                        <label for="imie"><%= __('main-page.Name') + ':' %> </label>
                         <input type="imie" id="imie" name="imie">
             
-                        <label for="nazwisko">Nazwisko:</label>
+                        <label for="nazwisko"><%= __('main-page.SecondName') + ':' %></label>
                         <input type="nazwisko" id="nazwisko" name="nazwisko"> 
             
-                        <label for="password">Hasło:</label>
+                        <label for="password"><%= __('main-page.Password') + ':' %></label>
                         <input type="password" id="password" name="password"> 
-                        <input type="submit" value="Zaloguj się">
+                        <input type="submit" value="<%= __('main-page.LogIn') %>">
                         <span id="loginErrors"><%= loginError ? loginError : ''%></span>
                     </form>
                 </div>
                 <% } else { %>
-                    <span> Jesteś zalogowany jako: <%=loggedUser.prc_imie + " " + loggedUser.prc_nazwisko%></span>
-                    <a href="/logout">Wyloguj się</a>         
+                    <span> <%= __('main-page.LoggedAs') + ':' %> <%=loggedUser.prc_imie + " " + loggedUser.prc_nazwisko%></span>
+                    <a href="/logout"><%= __('main-page.LogOut') %></a>         
                     <% } %>
-                    <br> Created by Piotr, Łojko, S19514
+                    <br> <%= __('main-page.createdBy') %>  Piotr Łojko, S19514
         </footer>
       
     </body>

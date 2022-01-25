@@ -14,6 +14,9 @@
                     <%= validationErrors.find(e => e.path.includes('prc_imie')).message %>
                     <% } %>
             </span>
+            <div style="display: none">
+                <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+             </div>
 
             <label for="prc_nazwisko"><%= __('prc.fields.prc_nazwisko') + ':'%><span class="symbol-required">*</span></label>
             <input class="<%= validationErrors.find(e => e.path.includes('prc_nazwisko')) ? 'error-input' : '' %>" type="text" name="prc_nazwisko" id ="prc_nazwisko" placeholder="2-150 <%= __('form.validation.chars') %>" value="<%= prc.prc_nazwisko%>" 
@@ -25,7 +28,7 @@
             </span>
 
             <label for="prc_dataUrodzenia"><%= __('prc.fields.prc_dataUrodzenia') + ':'%><span class="symbol-required">*</span></label>
-            <input class="<%= validationErrors.find(e => e.path.includes('prc_dataUrodzenia')) ? 'error-input' : '' %>"  type="date"
+            <input class="<%= validationErrors.find(e => e.path.includes('prc_dataUrodzenia')) ? 'error-input' : '' %>"  type="date" lang="<%= __('form.dateLangaje') %>"
             name="prc_dataUrodzenia" min="1930-06-07" max="2100-10-10" id="prc_dataUrodzenia" value="<%= (formMode=='edit' || formMode=='showDetails') ? prc.prc_dataUrodzenia.toISOString().split('T')[0] : prc.prc_dataUrodzenia%>" 
             <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
             <span id="errorprc_dataUrodzenia" class="errors-text">
@@ -98,6 +101,19 @@
                 <a class="form-button-cancel" href="/employees"><%= __('form.actions.return') %></a>
             <% } %>
         </div>
+        <div style="display: none">
+            <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+         </div>
+         <div style="display: none">
+            <span id="errorMessage-SummaryErr"><%= __('validationMessage.summaryErr') %></span>
+         </div>
+         <div style="display: none">
+            <span id="errorMessage-NotInRange"><%= __('validationMessage.NotInRange') %></span>
+         </div>
+         <div style="display: none">
+            <span id="errorMessage-DateFromPast"><%= __('validationMessage.DateFromPast') %></span>
+         </div>
+     
 </form>
 
     </main>

@@ -1,44 +1,66 @@
 {
+	"header": {
+		"tittle": "LogiFirm - Network of logistics companies",
+		"credo": "Your leader in contract logistics records"
+	},
 	"main-page": {
-		"content": "Main Page"
+		"content": "Homepage",
+		"createdBy": "Created by",
+		"LoggingIn": "Log in",
+		"Name": "First name",
+		"SecondName": "Second Name",
+		"Password": "Password",
+		"LogIn": "Proceed",
+		"LoggedAs": "Logged as",
+		"LogOut": "Log out"
 	},
 	"nav": {
 		"main-page": "Main page",
 		"employees": "Employees",
-		"departments": "Departments",
-		"employments": "Employments"
+		"warehouses": "Warehouses",
+		"companies": "Companies"
 	},
-    "list": {
-       "actions": {
-         "title": "Actions",
-         "details": "Details",
-         "edit": "Edit",
-         "delete": "Delete"
-       }
-    },
-    "form": {
-       "actions": {
-          "return": "Return",
-          "edit": "Edit",
-          "cancel": "Cancel"
-      }
-    },
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel",
+			"dateLangaje": "en-EN"
+		},
+		"validation": {
+			"chars": "chars"
+		},
+		"selectField": {
+			"chooseWarehouse": "-- Choose warehouse --",
+			"chooseCompany": "-- Choose company --"
+		},
+		"dateLangaje": "en-EN"
+	},
 	"prc": {
 		"fields": {
 			"prc_imie": "Name",
 			"prc_nazwisko": "Last name",
 			"prc_dataUrodzenia": "Birth date ",
-            "prc_stanowisko": "Position",
-            "prc_stanCywilny": "Civil state",
-            "magazyn": "Warehouse",
-            "firma":"Company",
-            "password":"Password"
+			"prc_stanowisko": "Position",
+			"prc_stanCywilny": "Civil state",
+			"magazyn": "Warehouse",
+			"firma": "Company",
+			"password": "Password"
 		},
 		"list": {
 			"title": "Employees",
 			"addNew": "Add new employee",
 			"noData": "No employees in database",
-			"pageTitle": "List of employees"
+			"pageTitle": "List of employees",
+			"backToMainPage": "Return to main page"
 		},
 		"form": {
 			"employment": "History of employment",
@@ -57,7 +79,16 @@
 					"header": "Confirmation",
 					"text": "The employee has been successfully updated"
 				}
+			},
+			"details": {
+				"pageTitle": "Employee details"
 			}
-        }
-    }
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "Field is required",
+		"summaryErr": "Form contains errors",
+		"NotInRange": "Invalid number of chars",
+		"DateFromPast": "Date must be from the past"
+	}
 }

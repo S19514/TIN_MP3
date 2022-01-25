@@ -436,6 +436,16 @@ header img{
     }
 }
 
+.buttons {
+    margin: 0 auto;
+    display: inline;
+}
+    
+        .action_a {
+    margin: 0 auto;
+    display: inline;
+}
+
 @media all and (max-width:720px) {
     nav ul {
     flex-wrap: wrap;

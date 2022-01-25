@@ -49,6 +49,15 @@ i18n.configure({
    objectNotation: true, // umożliwia korzstanie z zagnieżdżonych kluczy w notacji obiektowej
    cookie: 'acme-hr-lang', //nazwa cookies, które nasza aplikacja będzie wykorzystywać do przechowania informacji o języku aktualnie wybranym przez użytkownika
 });
+
+app.use((req, res, next) => {
+  if(!res.locals.lang) {
+      const currentLang = req.cookies['acme-hr-lang'];
+      res.locals.lang = currentLang;
+  }
+  next();
+});
+
 app.use(i18n.init);
 app.use(express.static(path.join(__dirname, 'public')));
 

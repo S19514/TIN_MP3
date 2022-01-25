@@ -4,24 +4,33 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="stylesheet" href="../../css/style.css">
     <meta charset="UTF-8">
-    <title>LogiFirm - Sieć firm logistycznych</title>
+    <title><%= __('header.tittle') %></title>
     
 </head>
 
 <body>
     <header>
-        <h1>LogiFirm - Sieć firm logistycznych</h1>
+        <h1><%= __('header.tittle') %></h1>
         <img src="../../images/Logifirm.png" alt="LogFirm Logo">    
         <script type="application/javascript" src="/js/validationCommon.js"></script>
      
     </header>
+        <ul>
+            <div>
+            <li><a href="/changeLang/pl" src= "../../images/poland.png" class="<%= lang == 'pl' ? 'active' : ''%>"> <img alt="UKK" src="../../images/poland.png"
+                ></a></li>
+            <li><a href="/changeLang/en"  class="<%= lang == 'en' ? 'active' : ''%>">
+                     <img alt="UKK" src="../../images/uk.png"
+                ></a></li>
+            </div>
+        </ul>
     <nav>
         <ul>
-            <li><a href="/" class ="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <li><a href="/" class ="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('main-page.content') %></a></li>
             <% if(loggedUser) { %>
-            <li><a href="/warehouses" class = "<%= navLocation == 'mag' ? 'active' : ''%>">Magazyny</a></li>
-            <li><a href="/employees" class ="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
-            <li><a href="/companies" class ="<%= navLocation == 'frm' ? 'active' : ''%>">Firma</a></li>
+            <li><a href="/warehouses" class = "<%= navLocation == 'mag' ? 'active' : ''%>"><%= __('nav.warehouses') %></a></li>
+            <li><a href="/employees" class ="<%= navLocation == 'emp' ? 'active' : ''%>"><%= __('nav.employees') %></a></li>
+            <li><a href="/companies" class ="<%= navLocation == 'frm' ? 'active' : ''%>"><%= __('nav.companies') %></a></li>           
             <% } %>
-        </ul>
+            
     </nav>
