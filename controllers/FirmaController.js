@@ -14,9 +14,9 @@ exports.showCompanyList = (req, res, next) => {
 exports.showAddCompanyForm = (req,res,next) => {
     res.render('pages/firma/form', {
         frm: {},
-        pageTitle: 'Nowa firma',
+        pageTitle: req.__('frm.form.add.pageTitle'), //'Nowa firma',
         formMode: 'createNew',
-        btnLabel: 'Dodaj firmę',
+        btnLabel: req.__('frm.form.add.btnLabel'),//'Dodaj firmę',
         formAction: '/companies/add',        
         navLocation: 'frm',
         validationErrors: [] 
@@ -29,8 +29,8 @@ exports.showEditCompanyForm = (req,res,next) => {
             res.render('pages/firma/form', { 
                 frm: frm,
                 formMode: 'edit',
-                pageTitle: 'Edycja firmy',
-                btnLabel: 'Edytuj firmę',
+                pageTitle: req.__('frm.form.edit.pageTitle'), //'Edycja firmy',
+                btnLabel: req.__('frm.form.edit.btnLabel'),//'Edytuj firmę',
                 formAction: '/companies/edit',
                 navLocation: 'frm' ,
                 validationErrors: []
@@ -45,7 +45,7 @@ exports.showCompanyDetails = (req,res,next) => {
             res.render('pages/firma/form', { 
                 frm: frm,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły firmy',
+                pageTitle: req.__('frm.form.details.pageTitle'), //'Szczegóły firmy',
                 formAction:'',
                 navLocation: 'frm',
                 validationErrors: []
@@ -62,9 +62,9 @@ exports.addCompany = (req, res, next) => {
         .catch(err => {
             res.render('pages/firma/form', {
                 frm: frmData,
-                pageTitle: 'Dodawanie firmy',
+                pageTitle: req.__('frm.form.add.pageTitle'), //'Dodawanie firmy',
                 formMode: 'createNew',
-                btnLabel: 'Dodaj firmę',
+                btnLabel: req.__('frm.form.add.btnLabel'),//'Dodaj firmę',
                 formAction: '/companies/add',
                 navLocation: 'frm',
                 validationErrors: err.errors
@@ -81,9 +81,9 @@ exports.updateCompany = (req, res, next) => {
         .catch(err => {
             res.render('pages/firma/form', {
                 frm: frmData,
-                pageTitle: 'Edycja firmy',
+                pageTitle: req.__('frm.form.edit.pageTitle'), //'Edycja firmy',
                 formMode: 'edit',
-                btnLabel: 'Edytuj firmę',
+                btnLabel: req.__('frm.form.edit.btnLabel'),//'Edytuj firmę',
                 formAction: '/companies/edit',
                 navLocation: 'frm',
                 validationErrors: err.errors

@@ -18,7 +18,11 @@ function validateForm(){
     const errorCartCount = document.getElementById('errormag_iloscWozkow');
     const errorHallCount = document.getElementById('errormag_iloscHal');
     const errorScannerCount = document.getElementById('errormag_iloscSkanerow');
-    
+    const errRequired = document.getElementById('errorMessage-required').innerText;
+    const errSummary = document.getElementById('errorMessage-SummaryErr').innerText;
+    const errNotInRange = document.getElementById('errorMessage-NotInRange').innerText;
+    const errNotInRangeInt = document.getElementById('errorMessage-NotInRangeInt').innerText;
+
     resetErrors([magCodeInput //2-25
                 ,magNameInput //2-100
                 ,countryPrefixInput //2-5
@@ -45,21 +49,21 @@ function validateForm(){
         valid = false;        
         magCodeInput.classList.add("error-input");
         errorMagCode.classList.add("errors-text");
-        errorMagCode.innerText = "Pole jest wymagane client";
+        errorMagCode.innerText = errRequired;
     }
     else if(!checkTextLengthRange(magCodeInput.value,2,25))
     {
         valid = false;
         magCodeInput.classList.add("error-input");
         errorMagCode.classList.add("errors-text");
-        errorMagCode.innerText = "Pole powinno zawierać od 2 do 25 znaków client";
+        errorMagCode.innerText = errNotInRange;
     }
     if(!checkRequired(magNameInput.value))
     {
         valid = false;
         magNameInput.classList.add("error-input");
         errorMagName.classList.add("errors-text")
-        errorMagName.innerText = "Pole jest wymagane client";
+        errorMagName.innerText = errRequired;
         
     }
     else if(!checkTextLengthRange(magNameInput.value,2,100))
@@ -67,91 +71,91 @@ function validateForm(){
         valid = false;
         magNameInput.classList.add("error-input");
         errorMagName.classList.add("errors-text")
-        errorMagName.innerText = "Pole powinno zawierać od 2 do 100 znaków client";
+        errorMagName.innerText = errNotInRange;
     }
     if(!checkRequired(countryPrefixInput.value))
     {       
         valid = false;        
         countryPrefixInput.classList.add("error-input");
         errorCountryPrefix.classList.add("errors-text");
-        errorCountryPrefix.innerText = "Pole jest wymagane client";
+        errorCountryPrefix.innerText = errRequired;
     }
     else if(!checkTextLengthRange(countryPrefixInput.value,2,5))
     {
         valid = false;
         countryPrefixInput.classList.add("error-input");
         errorCountryPrefix.classList.add("errors-text");
-        errorCountryPrefix.innerText = "Pole powinno zawierać od 2 do 5 znaków client";
+        errorCountryPrefix.innerText = errNotInRange;
     }
     if(!checkRequired(squareMetersInput.value))
     {       
         valid = false;        
         squareMetersInput.classList.add("error-input");
         errorSquareMeters.classList.add("errors-text");
-        errorSquareMeters.innerText = "Pole jest wymagane client";
+        errorSquareMeters.innerText = errRequired;
     }
     else if(!checkNumberRange(squareMetersInput.value,1,Number.MAX_SAFE_INTEGER))
     {
         valid = false;
         squareMetersInput.classList.add("error-input");
         errorSquareMeters.classList.add("errors-text");
-        errorSquareMeters.innerText = "Pole powinno zawierać liczbę od 1 do" + Number.MAX_SAFE_INTEGER + " client";
+        errorSquareMeters.innerText = errNotInRangeInt;
     }
     if(!checkRequired(rackCountInput.value))
     {       
         valid = false;        
         rackCountInput.classList.add("error-input");
         errorRackCount.classList.add("errors-text");
-        errorRackCount.innerText = "Pole jest wymagane client";
+        errorRackCount.innerText = errRequired;
     }
     else if(!checkNumberRange(rackCountInput.value,1,Number.MAX_SAFE_INTEGER))
     {
         valid = false;
         rackCountInput.classList.add("error-input");
         errorRackCount.classList.add("errors-text");
-        errorRackCount.innerText = "Pole powinno zawierać liczbę od 1 do" + Number.MAX_SAFE_INTEGER + " client";
+        errorRackCount.innerText = errNotInRangeInt;
     }
     if(!checkRequired(locationCountInput.value))
     {       
         valid = false;        
         locationCountInput.classList.add("error-input");
         errorLocationCount.classList.add("errors-text");
-        errorLocationCount.innerText = "Pole jest wymaganeclient";
+        errorLocationCount.innerText = errRequired;
     }
     else if(!checkNumberRange(locationCountInput.value,1,Number.MAX_SAFE_INTEGER))
     {
         valid = false;
         locationCountInput.classList.add("error-input");
         errorLocationCount.classList.add("errors-text");
-        errorLocationCount.innerText = "Pole powinno zawierać liczbę od 1 do" + Number.MAX_SAFE_INTEGER + " client";
+        errorLocationCount.innerText = errNotInRangeInt;
     }
     if(!checkRequired(cartCountInput.value))
     {       
         valid = false;        
         cartCountInput.classList.add("error-input");
         errorCartCount.classList.add("errors-text");
-        errorCartCount.innerText = "Pole jest wymagane client";
+        errorCartCount.innerText = errRequired;
     }
     else if(!checkNumberRange(cartCountInput.value,1,Number.MAX_SAFE_INTEGER))
     {
         valid = false;
         cartCountInput.classList.add("error-input");
         errorCartCount.classList.add("errors-text");
-        errorCartCount.innerText = "Pole powinno zawierać liczbę od 1 do" + Number.MAX_SAFE_INTEGER + " client";
+        errorCartCount.innerText = errNotInRangeInt;
     }
     if(!checkRequired(hallCountInput.value))
     {       
         valid = false;        
         hallCountInput.classList.add("error-input");
         errorHallCount.classList.add("errors-text");
-        errorHallCount.innerText = "Pole jest wymagane";
+        errorHallCount.innerText = errRequired;
     }
     else if(!checkNumberRange(hallCountInput.value,1,Number.MAX_SAFE_INTEGER))
     {
         valid = false;
         hallCountInput.classList.add("error-input");
         errorHallCount.classList.add("errors-text");
-        errorHallCount.innerText = "Pole powinno zawierać liczbę od 1 do" + Number.MAX_SAFE_INTEGER  + " client";
+        errorHallCount.innerText = errNotInRangeInt;
     }
     if(scannerCountInput.value)
     {
@@ -160,7 +164,7 @@ function validateForm(){
             valid = false;
             scannerCountInput.classList.add("error-input");
             errorScannerCount.classList.add("errors-text");
-            errorScannerCount.innerText = "Pole powinno zawierać liczbę od 1 do " + Number.MAX_SAFE_INTEGER  + " client";
+            errorScannerCount.innerText = errNotInRangeInt;
         }
 
     }
@@ -168,7 +172,7 @@ function validateForm(){
        
     if(!valid)
     {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        errorsSummary.innerText = errSummary;
     }
     return valid;
 }

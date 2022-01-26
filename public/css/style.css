@@ -567,3 +567,24 @@ header img{
         display: none;
     }
 }
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(4); /* IE */
+  -moz-transform: scale(4); /* FF */
+  -webkit-transform: scale(4); /* Safari and Chrome */
+  -o-transform: scale(4); /* Opera */
+  margin-top: 6mm;
+  margin-left: 4mm;
+  transform: scale(4);
+  padding: 30px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+  /* Checkbox text */
+  font-size: 110%;
+  display: inline;
+}

@@ -11,7 +11,9 @@
                <th><%= __('prc.fields.prc_stanCywilny') %></th>
                <th><%= __('prc.fields.magazyn') %></th>
                <th><%= __('prc.fields.firma') %></th>
+               <% if(loggedUser){ %>
                <th><%= __('list.actions.title') %></th>
+               <% } %> 
             </tr>
            </thead>
            <tbody>
@@ -24,6 +26,7 @@
                    <td><%= prc.prc_stanCywilny %></td>
                    <td><%= prc.magazyn.mag_nazwa %></td>
                    <td><%= prc.firma.frm_nazwa  %></td>
+                   <% if(loggedUser){ %>
                    <td>
                     <ul>
                         <li>
@@ -37,12 +40,15 @@
                         </li>
                     </ul>
                 </td>
+                <% } %> 
                </tr>
                <% } %>
            </tbody>
         </table>
         <form class="form-editbtns">
+            <% if(loggedUser){ %>
             <a href="employees/add" class="button-add"><%= __('prc.list.addNew') %></a>
+            <% } %> 
             <a href="/" class="button-return"><%= __('prc.list.backToMainPage') %></a>
          </form>        
         </main>

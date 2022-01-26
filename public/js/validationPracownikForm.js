@@ -41,6 +41,7 @@ function validateForm(){
                 ,errorsSummary);
     let valid = true;
 
+
     if(civilStateInput.value)
     {
         if(!checkTextLengthRange(civilStateInput.value,2,150))

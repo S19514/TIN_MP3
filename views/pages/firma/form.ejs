@@ -5,16 +5,16 @@
             <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();">
                 <input type="hidden" name="frm_id" value="<%= frm.frm_id%>">    
                 
-                <label for="frm_nazwa">Nazwa firmy: <span class="symbol-required">*</span></label>
-                <input class="<%= validationErrors.find(e => e.path.includes('frm_nazwa')) ? 'error-input' : '' %>" type="text" name="frm_nazwa" id ="frm_nazwa" placeholder="2-150 znaków" value="<%= frm.frm_nazwa%>" 
+                <label for="frm_nazwa"><%= __('frm.fields.name')  + ':'%><span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_nazwa')) ? 'error-input' : '' %>" type="text" name="frm_nazwa" id ="frm_nazwa" placeholder="2-150 <%= __('form.validation.chars') %>" value="<%= frm.frm_nazwa%>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorfrm_nazwa" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('frm_nazwa'))) { %>
                         <%= validationErrors.find(e => e.path.includes('frm_nazwa')).message %>
                         <% } %>
                 </span>
-                <label for="frm_adres">Adres firmy: <span class="symbol-required">*</span></label>
-                <input class="<%= validationErrors.find(e => e.path.includes('frm_adres')) ? 'error-input' : '' %>" type="text" name="frm_adres" id ="frm_adres" placeholder="2-150 znaków" value="<%= frm.frm_adres%>" 
+                <label for="frm_adres"><%= __('frm.fields.adress')  + ':'%><span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_adres')) ? 'error-input' : '' %>" type="text" name="frm_adres" id ="frm_adres" placeholder="2-150 <%= __('form.validation.chars') %>" value="<%= frm.frm_adres%>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorfrm_adres" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('frm_adres'))) { %>
@@ -22,8 +22,8 @@
                         <% } %>
                 </span>
 
-                <label for="frm_kodP">Kod pocztowy: <span class="symbol-required">*</span></label>
-                <input class="<%= validationErrors.find(e => e.path.includes('frm_kodP')) ? 'error-input' : '' %>" type="text" name="frm_kodP" id ="frm_kodP" placeholder="2-20 znaków" value="<%= frm.frm_kodP%>" 
+                <label for="frm_kodP"><%= __('frm.fields.postcode')  + ':'%><span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_kodP')) ? 'error-input' : '' %>" type="text" name="frm_kodP" id ="frm_kodP" placeholder="2-20 <%= __('form.validation.chars') %>" value="<%= frm.frm_kodP%>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorfrm_kodP" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('frm_kodP'))) { %>
@@ -31,8 +31,8 @@
                         <% } %>
                 </span>
 
-                <label for="frm_miasto">Miasto: <span class="symbol-required">*</span></label>
-                <input class="<%= validationErrors.find(e => e.path.includes('frm_miasto')) ? 'error-input' : '' %>" type="text" name="frm_miasto" id ="frm_miasto"  placeholder="2-150 znaków" value="<%= frm.frm_miasto%>" 
+                <label for="frm_miasto"><%= __('frm.fields.town')  + ':'%><span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_miasto')) ? 'error-input' : '' %>" type="text" name="frm_miasto" id ="frm_miasto"  placeholder="2-150 <%= __('form.validation.chars') %>" value="<%= frm.frm_miasto%>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorfrm_miasto" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('frm_miasto'))) { %>
@@ -40,8 +40,8 @@
                         <% } %>
                 </span>
 
-                <label for="frm_krajPrefix">Prefiks kraju: <span class="symbol-required">*</span></label>
-                <input class="<%= validationErrors.find(e => e.path.includes('frm_krajPrefix')) ? 'error-input' : '' %>" type="text" name="frm_krajPrefix" id ="frm_krajPrefix"  placeholder="2-5 znaków" value="<%= frm.frm_krajPrefix%>" 
+                <label for="frm_krajPrefix"><%= __('mag.fields.countryPrefix')  + ':'%><span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_krajPrefix')) ? 'error-input' : '' %>" type="text" name="frm_krajPrefix" id ="frm_krajPrefix"  placeholder="2-5 <%= __('form.validation.chars') %>" value="<%= frm.frm_krajPrefix%>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorfrm_krajPrefix" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('frm_krajPrefix'))) { %>
@@ -49,8 +49,8 @@
                         <% } %>
                 </span>
 
-                <label for="frm_prezes">Prezes firmy: </label>
-                <input class="<%= validationErrors.find(e => e.path.includes('frm_prezes')) ? 'error-input' : '' %>" type="text" name="frm_prezes" id ="frm_prezes"  placeholder="2-150 znaków" value="<%= frm.frm_prezes%>" 
+                <label for="frm_prezes"><%= __('mag.fields.president')  + ':'%></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('frm_prezes')) ? 'error-input' : '' %>" type="text" name="frm_prezes" id ="frm_prezes"  placeholder="2-150 <%= __('form.validation.chars') %>" value="<%= frm.frm_prezes%>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorfrm_prezes" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('frm_prezes'))) { %>
@@ -63,26 +63,26 @@
                     <% if (formMode != 'showDetails') { %>
                                                 
                         <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                        <a class="form-button-cancel" href="/companies">Anuluj</a>            
+                        <a class="form-button-cancel" href="/companies"><%= __('form.actions.cancel') %></a>            
                     <% } else { %>
                         
-                        <a class="form-button-cancel" href="/companies">Powrót</a>
+                        <a class="form-button-cancel" href="/companies"><%= __('form.actions.return') %></a>
                     <% } %>
                 </div> <p> </p>     
 
                 <% if (formMode == 'showDetails' || formMode == 'edit') {%>
                     <h2>
-                        Lista Magazynierów
+                        <%= __('prc.list.pageTitle') %>
                     </h2>                    
                     <table class="table-Prac">
                         <thead>
                             <tr>
-                                <th>Imię</th>
-                                <th>Nazwisko</th>
-                                <th>Data urodzenia</th>
-                                <th>Stanowisko</th>
-                                <th>Stan Cywilny</th>
-                                <th>Magazyn</th>
+                                <th><%= __('prc.fields.prc_imie') %></th>
+                                <th><%= __('prc.fields.prc_nazwisko') %></th>
+                                <th><%= __('prc.fields.prc_dataUrodzenia') %></th>
+                                <th><%= __('prc.fields.prc_stanowisko') %></th>
+                                <th><%= __('prc.fields.prc_stanCywilny') %></th>
+                                <th><%= __('prc.fields.magazyn') %></th
                             </tr>
                         </thead>
                         <tbody>
@@ -99,6 +99,19 @@
                         </tbody>
                     </table>
                 <% } %>
+
+                <div style="display: none">
+                    <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+                 </div>
+                 <div style="display: none">
+                    <span id="errorMessage-SummaryErr"><%= __('validationMessage.summaryErr') %></span>
+                 </div>
+                 <div style="display: none">
+                    <span id="errorMessage-NotInRange"><%= __('validationMessage.NotInRange') %></span>
+                 </div>
+                 <div style="display: none">
+                    <span id="errorMessage-NotInRangeInt"><%= __('validationMessage.NotInRangeInt') %></span>
+                 </div>
             </form>
         </main>
         <%- include('../../fragments/footer.ejs') %>

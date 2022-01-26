@@ -36,7 +36,8 @@
 			"dateLangaje": "en-EN"
 		},
 		"validation": {
-			"chars": "chars"
+			"chars": "chars",
+			"positiveInteger": "non negative integer"
 		},
 		"selectField": {
 			"chooseWarehouse": "-- Choose warehouse --",
@@ -53,7 +54,8 @@
 			"prc_stanCywilny": "Civil state",
 			"magazyn": "Warehouse",
 			"firma": "Company",
-			"password": "Password"
+			"password": "Password",
+			"IsAdmin": "Admin privelages"
 		},
 		"list": {
 			"title": "Employees",
@@ -89,6 +91,65 @@
 		"fieldRequired": "Field is required",
 		"summaryErr": "Form contains errors",
 		"NotInRange": "Invalid number of chars",
-		"DateFromPast": "Date must be from the past"
+		"DateFromPast": "Date must be from the past",
+		"NotInRangeInt": "Value should be in 1-2147483647 range"
+	},
+	"mag": {
+		"list": {
+			"pageTitle": "List of Warehouses",
+			"addNew": "Add new Warehouse"
+		},
+		"fields": {
+			"code": "Code",
+			"name": "Name",
+			"countryPrefix": "Country Prefix",
+			"powierzchnia": "Area SQM",
+			"iloscRegalow": "Rack QTY",
+			"iloscPolozen": "Location QTY",
+			"cartCount": "Cart QTY",
+			"hallCount": "Hall QTY",
+			"scannerCount": "Scanner QTY",
+			"actions": "Actions",
+			"president": "President"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a new Warehouse",
+				"btnLabel": "Add Warehouse"
+			},
+			"edit": {
+				"pageTitle": "Editing a Warehouse",
+				"btnLabel": "Save changes"
+			},
+			"details": {
+				"pageTitle": "Details of Warehouse"
+			}
+		}
+	},
+	"frm": {
+		"list": {
+			"pageTitle": "List of Companies",
+			"addNew": "Add new Company"
+		},
+		"fields": {
+			"name": "Name",
+			"adress": "Adress",
+			"postcode": "Postcode",
+			"town": "Town",
+			"CEO": "President"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a new Company",
+				"btnLabel": "Add Company"
+			},
+			"details": {
+				"pageTitle": "Details of a Company"
+			},
+			"edit": {
+				"pageTitle": "Editing a Company",
+				"btnLabel": "Save changes"
+			}
+		}
 	}
 }

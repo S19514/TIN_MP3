@@ -20,7 +20,8 @@
 		"fieldRequired": "Pole jest wymagane json",
 		"summaryErr": "Formularz zawiera błędy",
 		"NotInRange": "Nieprawidłowa ilość znaków",
-		"DateFromPast": "Data musi być z przeszłości"
+		"DateFromPast": "Data musi być z przeszłości",
+		"NotInRangeInt": "Wartość powinna być w zakresie 1-2147483647"
 	},
 	"list": {
 		"actions": {
@@ -38,12 +39,14 @@
 			"dateLangaje": "pl-PL"
 		},
 		"validation": {
-			"chars": "znaków"
+			"chars": "znaków",
+			"positiveInteger": "liczba całkowita nieujemna"
 		},
 		"selectField": {
 			"chooseWarehouse": "-- Wybierz magazyn --",
 			"chooseCompany": "-- Wybierz firmę --"
-		}
+		},
+		"dateLangaje": "form.dateLangaje"
 	},
 	"prc": {
 		"fields": {
@@ -54,7 +57,8 @@
 			"prc_stanCywilny": "Stan Cywilny",
 			"magazyn": "Magazyn",
 			"firma": "Firma",
-			"password": "Hasło"
+			"password": "Hasło",
+			"IsAdmin": "Uprawnienia Administratora"
 		},
 		"list": {
 			"title": "Pracownicy",
@@ -79,7 +83,7 @@
 				"confirm": {
 					"header": "Potwierdzenie operacji",
 					"text": "Pomyślnie zaktualizowano pracownika"
-				}								
+				}
 			},
 			"details": {
 				"pageTitle": "Szczegóły pracownika"
@@ -94,5 +98,63 @@
 	"header": {
 		"tittle": "LogiFirm - sieć firm logistycznych",
 		"credo": "Twój lider w zakresie ewidencji logistyki kontraktowej"
+	},
+	"mag": {
+		"list": {
+			"pageTitle": "Lista Magazynów",
+			"addNew": "Dodaj Magazyn"
+		},
+		"fields": {
+			"code": "Kod",
+			"name": "Nazwa",
+			"countryPrefix": "Prefiks Kraju(ISO)",
+			"powierzchnia": "Powierzchnia",
+			"iloscRegalow": "Ilość Regałów",
+			"iloscPolozen": "Ilość Położeń",
+			"cartCount": "Ilość Wózków",
+			"hallCount": "Ilość Hal",
+			"scannerCount": "Ilość Skanerów",
+			"actions": "Akcje",
+			"president": "Prezes"
+		},
+		"form": {
+			"details": {
+				"pageTitle": "Szczegóły magazynu"
+			},
+			"edit": {
+				"pageTitle": "Edycja Magazynu",
+				"btnLabel": "Zapisz zmiany"
+			},
+			"add": {
+				"pageTitle": "Dodawanie Magazynu",
+				"btnLabel": "Dodaj nowy magazyn"
+			}
+		}
+	},
+	"frm": {
+		"list": {
+			"pageTitle": "Lista Firm",
+			"addNew": "Dodaj nową firmę"
+		},
+		"fields": {
+			"name": "Nazwa",
+			"adress": "Adres",
+			"postcode": "Kod pocztowy",
+			"town": "Miasto",
+			"CEO": "Prezes"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie nowej firmy",
+				"btnLabel": "Dodaj nową firmę"
+			},
+			"details": {
+				"pageTitle": "Szczegóły firmy"
+			},
+			"edit": {
+				"pageTitle": "Edycja firmy",
+				"btnLabel": "Zapisz zmiany"
+			}
+		}
 	}
 }

@@ -42,11 +42,13 @@ exports.createPracownik = (data) => {
         prc_stanCywilny: data.prc_stanCywilny,
         frm_id: data.mag_id,
         mag_id: data.frm_id,
-        password: data.password
+        password: data.password,
+        IsAdmin: data.IsAdmin ? data.IsAdmin : false
     });
 };
 
 exports.updatePracownik = (pracownikId, data) => {
+    data.IsAdmin = data.IsAdmin ? data.IsAdmin : false;
     return Pracownik.update(data, {where: {prc_id: pracownikId}});
 }
 

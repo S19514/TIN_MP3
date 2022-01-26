@@ -105,6 +105,10 @@ const Pracownik = sequelize.define('Pracownik',
 password: {
     type: Sequelize.STRING,
     allowNull: false
+},
+IsAdmin: { 
+    type: Sequelize.BOOLEAN,
+    allowNull: false
 }
 
 });

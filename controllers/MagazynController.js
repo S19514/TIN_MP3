@@ -13,9 +13,9 @@ exports.showWarehouseList = (req, res, next) => {
 exports.showAddWarehouseForm = (req,res,next) => {
     res.render('pages/magazyn/form', {
         mag: {},
-        pageTitle: 'Nowy magazyn',
+        pageTitle: req.__('mag.form.add.pageTitle'), // 'Nowy magazyn',
         formMode: 'createNew',
-        btnLabel: 'Dodaj magazyn',
+        btnLabel: req.__('mag.form.add.btnLabel'),//'Dodaj magazyn',
         formAction: '/warehouses/add',        
         navLocation: 'mag' ,
         validationErrors: []
@@ -28,8 +28,8 @@ exports.showEditWarehouseForm = (req,res,next) => {
             res.render('pages/magazyn/form', { 
                 mag: mag,
                 formMode: 'edit',
-                pageTitle: 'Edycja magazynu',
-                btnLabel: 'Edytuj magazyn',
+                pageTitle:  req.__('mag.form.edit.pageTitle'), //'Edycja magazynu',
+                btnLabel: req.__('mag.form.edit.btnLabel'),//'Edytuj magazyn',
                 formAction: '/warehouses/edit',
                 navLocation: 'mag' ,
                 validationErrors: []
@@ -44,7 +44,7 @@ exports.showWarehouseDetails = (req,res,next) => {
             res.render('pages/magazyn/form', { 
                 mag: mag,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły magazynu',
+                pageTitle: req.__('mag.form.details.pageTitle'), // 'Szczegóły magazynu',
                 formAction:'',
                 navLocation: 'mag',
                 validationErrors: []
@@ -61,9 +61,9 @@ exports.addWarehouse = (req, res, next) => {
         .catch(err => {
             res.render('pages/magazyn/form', {               
                 mag: magData,
-                pageTitle: 'Dodawanie magazynu',
+                pageTitle:  req.__('mag.form.add.pageTitle'), //'Dodawanie magazynu',
                 formMode: 'createNew',
-                btnLabel: 'Dodaj magazyn',
+                btnLabel: req.__('mag.form.add.btnLabel'),// 'Dodaj magazyn',
                 formAction: '/warehouses/add',
                 navLocation: 'mag',
                 validationErrors: err.errors
@@ -81,9 +81,9 @@ exports.updateWarehouse = (req, res, next) => {
         .catch(err => {
             res.render('pages/magazyn/form', {               
                 mag: magData,                
-                pageTitle: 'Edycja magazynu',
+                pageTitle:  req.__('mag.form.edit.pageTitle'), //'Edycja magazynu',
                 formMode: 'edit',
-                btnLabel: 'Edytuj magazyn',
+                btnLabel: req.__('mag.form.edit.btnLabel'),//'Edytuj magazyn',
                 formAction: '/warehouses/edit',
                 navLocation: 'mag',
                 validationErrors: err.errors

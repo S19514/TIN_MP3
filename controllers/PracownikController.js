@@ -117,9 +117,9 @@ exports.addEmployee = (req, res, next) => {
         .catch(err => {
             res.render('pages/pracownik/form', {
                 prc: empData,
-                pageTitle: 'Dodawanie pracownika',
+                pageTitle: req.__('prc.form.add.pageTitle'), //'Dodawanie pracownika',
                 formMode: 'createNew',
-                btnLabel: 'Dodaj pracownika',
+                btnLabel: req.__('prc.form.add.btnLabel'),
                 formAction: '/employees/add',
                 navLocation: 'prc',
                 allMagazyny: allMagazyny,
@@ -141,6 +141,8 @@ exports.updateEmployee = (req, res, next) => {
     else
         empData.prc_dataUrodzenia = new Date();
 
+        console.log('IS ADMIN OR NO: ' +empData.IsAdmin);
+
     let allMagazyny, allFirmy;
     MagazynRepository.getMagazyny()
     .then( mag => {
@@ -158,9 +160,9 @@ exports.updateEmployee = (req, res, next) => {
         .catch(err => {
             res.render('pages/pracownik/form', {
                 prc: empData,
-                pageTitle: 'Edycja pracownika',
+                pageTitle: req.__('prc.form.edit.pageTitle'), //'Edycja pracownika',
                 formMode: 'edit',
-                btnLabel: 'Edytuj pracownika',
+                btnLabel: req.__('prc.form.edit.btnLabel'),//'Edytuj pracownika',
                 formAction: '/employees/edit',
                 navLocation: 'prc',
                 allMagazyny: allMagazyny,

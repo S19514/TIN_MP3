@@ -62,9 +62,12 @@ app.use(i18n.init);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/employees',authUtils.permitAuthenticatedUser, employeeRouter);
-app.use('/warehouses',authUtils.permitAuthenticatedUser,warehouseRouter);
-app.use('/companies',authUtils.permitAuthenticatedUser,companyController);
+app.use('/employees', employeeRouter);
+app.use('/warehouses',warehouseRouter);
+app.use('/companies',companyController);
+// app.use('/employees',authUtils.permitAuthenticatedUser, employeeRouter);
+// app.use('/warehouses',authUtils.permitAuthenticatedUser,warehouseRouter);
+// app.use('/companies',authUtils.permitAuthenticatedUser,companyController);
 
 const magApiRouter = require('./routes/api/MagazynApiRoute');
 const frmApiRouter = require('./routes/api/FirmaApiRoute');

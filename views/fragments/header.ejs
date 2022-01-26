@@ -15,6 +15,7 @@
         <script type="application/javascript" src="/js/validationCommon.js"></script>
      
     </header>
+    <nav>
         <ul>
             <div>
             <li><a href="/changeLang/pl" src= "../../images/poland.png" class="<%= lang == 'pl' ? 'active' : ''%>"> <img alt="UKK" src="../../images/poland.png"
@@ -24,13 +25,14 @@
                 ></a></li>
             </div>
         </ul>
+    </nav>
     <nav>
         <ul>
             <li><a href="/" class ="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('main-page.content') %></a></li>
-            <% if(loggedUser) { %>
+     
             <li><a href="/warehouses" class = "<%= navLocation == 'mag' ? 'active' : ''%>"><%= __('nav.warehouses') %></a></li>
             <li><a href="/employees" class ="<%= navLocation == 'emp' ? 'active' : ''%>"><%= __('nav.employees') %></a></li>
             <li><a href="/companies" class ="<%= navLocation == 'frm' ? 'active' : ''%>"><%= __('nav.companies') %></a></li>           
-            <% } %>
+        
             
     </nav>

@@ -90,7 +90,16 @@
             <% if (validationErrors.find(e => e.path.includes('password'))) { %>
                 <%= validationErrors.find(e => e.path.includes('password')).message %>
                 <% } %>
-        </span>            
+        </span> 
+        <label for="IsAdmin"><%= __('prc.fields.IsAdmin') + ':'%><span class="symbol-required">*</span></label>
+        <!-- <input type='hidden' value=false name='IsAdmin' id ="IsAdmin"> -->
+        <input class="<%= validationErrors.find(e => e.path.includes('IsAdmin')) ? 'error-input' : '' %>" type="checkbox" name="IsAdmin" id ="IsAdmin"  value=true   <%= (prc.IsAdmin == true) ? 'checked' : '' %>
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorIsAdmin" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('IsAdmin'))) { %>
+                <%= validationErrors.find(e => e.path.includes('IsAdmin')).message %>
+                <% } %>
+        </span>             
             
         <div class="form-buttons">
             <p id="errorsSummary" class="error-text"></p>
