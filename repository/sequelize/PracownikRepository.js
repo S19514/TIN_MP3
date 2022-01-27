@@ -40,8 +40,8 @@ exports.createPracownik = (data) => {
         prc_dataUrodzenia: data.prc_dataUrodzenia,
         prc_stanowisko: data.prc_stanowisko,
         prc_stanCywilny: data.prc_stanCywilny,
-        frm_id: data.mag_id,
-        mag_id: data.frm_id,
+        frm_id: data.frm_id,
+        mag_id: data.mag_id,
         password: data.password,
         IsAdmin: data.IsAdmin ? data.IsAdmin : false
     });
@@ -64,5 +64,10 @@ exports.deleteWieluPracownikow = (pracownikIdki) => {
 exports.findByCredentials = (imie,nazwisko) =>  {
     return Pracownik.findOne({
         where: {prc_imie: imie,prc_nazwisko: nazwisko }
+    });
+}
+exports.findPassById = (pracownikId) =>  {
+    return Pracownik.findOne({
+        where: {prc_id: pracownikId}
     });
 }

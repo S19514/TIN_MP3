@@ -23,19 +23,21 @@
                    <td><%= frm.frm_kodP %></td>
                    <td><%= frm.frm_miasto %></td>
                    <td><%= frm.frm_krajPrefix %></td>
-                   <td><%= frm.frm_prezes %></td>
-                   <% if(loggedUser){ %>                   
+                   <td><%= frm.frm_prezes %></td>                                      
                    <td>
+                    <% if((loggedUser && loggedUser.frm_id == frm.frm_id) || loggedAdmin ){ %>
                     <ul>
                         <li>
                             <a href="/companies/details/<%=frm.frm_id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                         </li>
+                        <% if(loggedAdmin ){ %> 
                         <li>
                             <a href="/companies/edit/<%=frm.frm_id%>" class="list-actions-button-edit "><%= __('list.actions.edit') %></a>
                         </li>
                         <li>
                             <a href="/companies/delete/<%=frm.frm_id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                         </li>
+                        <% } %> 
                     </ul>
                 </td>
                 <% } %> 
@@ -44,7 +46,7 @@
            </tbody>
         </table>   
          <form class="form-editbtns">
-            <% if(loggedUser){ %>
+            <% if(loggedAdmin){ %>
             <a href="companies/add" class="button-add"><%= __('frm.list.addNew') %></a> 
             <% } %> 
             <a href="/" class="button-return"><%= __('prc.list.backToMainPage') %></a>

@@ -2,6 +2,7 @@ const MagazynRepository = require('../repository/sequelize/MagazynRepository');
 const PracownikRepository = require('../repository/sequelize/PracownikRepository');
 const FirmaRepository = require('../repository/sequelize/FirmaRepository');
 const authUtil = require('../util/authUtils.js'); //require('../../util/authUtils.js');
+const e = require('express');
 
 
 
@@ -132,9 +133,16 @@ exports.addEmployee = (req, res, next) => {
 exports.updateEmployee = (req, res, next) => {
     const prcId = req.body.prc_id;
     const empData = { ...req.body };
+    const EmpData2Com = PracownikRepository.findPassById(prcId);
+    var passHash = undefined;
     console.log(empData.password);
-    const passHash = authUtil.hashPassword(empData.password);
-    empData.password = passHash;
+    if(EmpData2Com.passsword != empData.passsword)
+    {
+         passHash = authUtil.hashPassword(empData.password);
+        empData.password = passHash;
+    }
+    else
+        empData.password = EmpData2Com.password;
 
     if(empData.prc_dataUrodzenia)
         empData.prc_dataUrodzenia = new Date(empData.prc_dataUrodzenia);

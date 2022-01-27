@@ -26,18 +26,23 @@
                    <td><%= prc.prc_stanCywilny %></td>
                    <td><%= prc.magazyn.mag_nazwa %></td>
                    <td><%= prc.firma.frm_nazwa  %></td>
-                   <% if(loggedUser){ %>
+                   
                    <td>
+                    <% if((loggedUser && (loggedUser.prc_id == prc.prc_id || (loggedUser.mag_id == prc.mag_id && loggedUser.frm_id == prc.frm_id)) || loggedAdmin)){ %>
                     <ul>
                         <li>
                             <a href="/employees/details/<%=prc.prc_id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                         </li>
+                    <% if(loggedAdmin || loggedUser.prc_id == prc.prc_id){ %>                                                        
                         <li>
-                            <a href="/employees/edit/<%=prc.prc_id%>" class="list-actions-button-edit "><%= __('list.actions.edit') %></a>
+                            <a href="/employees/edit/<%=prc.prc_id%>" class="list-actions-button-edit "><%= __('list.actions.edit') %> </a>
                         </li>
+                        <% if(loggedAdmin ){ %>   
                         <li>
                             <a href="/employees/delete/<%=prc.prc_id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                         </li>
+                        <% } %> 
+                    <% } %> 
                     </ul>
                 </td>
                 <% } %> 
@@ -46,7 +51,7 @@
            </tbody>
         </table>
         <form class="form-editbtns">
-            <% if(loggedUser){ %>
+            <% if(loggedAdmin){ %>
             <a href="employees/add" class="button-add"><%= __('prc.list.addNew') %></a>
             <% } %> 
             <a href="/" class="button-return"><%= __('prc.list.backToMainPage') %></a>

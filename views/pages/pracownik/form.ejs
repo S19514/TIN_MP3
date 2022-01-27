@@ -39,7 +39,7 @@
 
             <label for="prc_stanowisko"><%= __('prc.fields.prc_stanowisko') + ':'%><span class="symbol-required">*</span></label>
             <input class="<%= validationErrors.find(e => e.path.includes('prc_stanowisko')) ? 'error-input' : '' %>" type="text" name="prc_stanowisko" id ="prc_stanowisko" placeholder="2-100 <%= __('form.validation.chars') %>" value="<%= prc.prc_stanowisko%>" 
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>  <%= loggedAdmin == true ? '' : 'disabled'   %>/>
             <span id="errorprc_stanowisko" class="errors-text">
                 <% if (validationErrors.find(e => e.path.includes('prc_stanowisko'))) { %>
                     <%= validationErrors.find(e => e.path.includes('prc_stanowisko')).message %>
@@ -56,7 +56,7 @@
             </span>    
                                   
             <label for="mag_id"><%= __('prc.fields.magazyn') + ':'%><span class="symbol-required">*</span></label> 
-           <select name="mag_id" id="mag_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+           <select name="mag_id" id="mag_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %>  <%= loggedAdmin == true ? '' : 'disabled'   %>>
                <option value=""><%= __('form.selectField.chooseWarehouse') %></option>
                <% if(allMagazyny) {for (let i=0; i<allMagazyny.length; i++) { let mag = allMagazyny[i]; %>
                    <option value="<%= mag.mag_id %>" label="<%= mag.mag_kod %>" 
@@ -70,7 +70,7 @@
             </span>
 
             <label for="frm_id"><%= __('prc.fields.firma') + ':'%><span class="symbol-required">*</span></label>
-            <select name="frm_id" id="frm_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <select name="frm_id" id="frm_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %>  <%= loggedAdmin == true ? '' : 'disabled'   %>>
                 <option value=""><%= __('form.selectField.chooseCompany') %></option>
                 <% if(allFirmy) {for (let i=0; i<allFirmy.length; i++) { let frm = allFirmy[i]; %>
                     <option value="<%= frm.frm_id %>" label="<%= frm.frm_nazwa %>" 
@@ -91,15 +91,16 @@
                 <%= validationErrors.find(e => e.path.includes('password')).message %>
                 <% } %>
         </span> 
+        
         <label for="IsAdmin"><%= __('prc.fields.IsAdmin') + ':'%><span class="symbol-required">*</span></label>
-        <!-- <input type='hidden' value=false name='IsAdmin' id ="IsAdmin"> -->
         <input class="<%= validationErrors.find(e => e.path.includes('IsAdmin')) ? 'error-input' : '' %>" type="checkbox" name="IsAdmin" id ="IsAdmin"  value=true   <%= (prc.IsAdmin == true) ? 'checked' : '' %>
-        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %> <%= loggedAdmin == true ? '' : 'disabled'   %>/>  
         <span id="errorIsAdmin" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('IsAdmin'))) { %>
                 <%= validationErrors.find(e => e.path.includes('IsAdmin')).message %>
                 <% } %>
-        </span>             
+        </span>    
+     
             
         <div class="form-buttons">
             <p id="errorsSummary" class="error-text"></p>

@@ -14,6 +14,7 @@ exports.login = (req, res, next) => {
                 })
             } else if(authUtil.comparePasswords(password,prc.password) === true) {
                 req.session.loggedUser = prc;
+                req.session.loggedAdmin = prc.IsAdmin;
                 res.redirect('/');
             } else {
                 res.render('index', {
@@ -25,9 +26,11 @@ exports.login = (req, res, next) => {
         .catch(err => {
             console.log(err);
         });
+
 }
 
 exports.logout = (req, res, next) => {
     req.session.loggedUser = undefined;
+    req.session.loggedAdmin = undefined;
     res.redirect('/');
 }

@@ -10,7 +10,8 @@ router.get('/add',authUtils.permitAuthenticatedUser,companyController.showAddCom
 router.get('/edit/:frmId',authUtils.permitAuthenticatedUser,companyController.showEditCompanyForm);
 router.get('/details/:frmId',authUtils.permitAuthenticatedUser,companyController.showCompanyDetails);
 router.post('/add', authUtils.permitAuthenticatedUser,companyController.addCompany);
-router.post('/edit',authUtils.permitAuthenticatedUser, companyController.updateCompany);
+router.post('/edit', companyController.updateCompany);
+// router.post('/edit',authUtils.permitAuthenticatedUser, companyController.updateCompany);
 router.get('/delete/:frmId',authUtils.permitAuthenticatedUser, companyController.deleteCompany);
 
 // app.use('/employees',authUtils.permitAuthenticatedUser, employeeRouter);

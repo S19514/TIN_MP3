@@ -10,7 +10,8 @@ router.get('/add',authUtils.permitAuthenticatedUser,warehouseController.showAddW
 router.get('/edit/:magId',authUtils.permitAuthenticatedUser,warehouseController.showEditWarehouseForm);
 router.get('/details/:magId',authUtils.permitAuthenticatedUser,warehouseController.showWarehouseDetails);
 router.post('/add',authUtils.permitAuthenticatedUser, warehouseController.addWarehouse);
-router.post('/edit',authUtils.permitAuthenticatedUser, warehouseController.updateWarehouse);
+router.post('/edit', warehouseController.updateWarehouse);
+// router.post('/edit',authUtils.permitAuthenticatedUser, warehouseController.updateWarehouse);
 router.get('/delete/:magId',authUtils.permitAuthenticatedUser, warehouseController.deleteWarehouse);
 
 module.exports = router;

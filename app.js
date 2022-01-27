@@ -30,7 +30,9 @@ app.use(session({
 
 app.use((req, res, next) => {
   const loggedUser = req.session.loggedUser;
+  const loggedAdmin = req.session.loggedAdmin;
   res.locals.loggedUser = loggedUser;
+  res.locals.loggedAdmin = loggedAdmin;
   if(!res.locals.loginError) {
     res.locals.loginError = undefined;
   }

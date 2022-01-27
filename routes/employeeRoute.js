@@ -10,7 +10,8 @@ router.get('/add',authUtils.permitAuthenticatedUser,employeeController.showAddEm
 router.get('/edit/:prcId',authUtils.permitAuthenticatedUser,employeeController.showEditEmployeeForm);
 router.get('/details/:prcId',authUtils.permitAuthenticatedUser,employeeController.showEmployeeDetails);
 router.post('/add', authUtils.permitAuthenticatedUser,employeeController.addEmployee);
-router.post('/edit', authUtils.permitAuthenticatedUser,employeeController.updateEmployee);
+// router.post('/edit', authUtils.permitAuthenticatedUser,employeeController.updateEmployee);
+router.post('/edit',employeeController.updateEmployee);
 router.get('/delete/:prcId',authUtils.permitAuthenticatedUser, employeeController.deleteEmployee);
 
 

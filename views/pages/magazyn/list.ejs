@@ -30,18 +30,22 @@
                    <td><%= mag.mag_iloscWozkow %></td>
                    <td><%= mag.mag_iloscHal %></td>
                    <td><%= mag.mag_iloscSkanerow %></td>
-                   <% if(loggedUser) { %>
+                   <% if((loggedUser && loggedUser.mag_id == mag.mag_id) || loggedAdmin) { %>
                    <td>
                         <ul>
                             <li>
                                 <a href="/warehouses/details/<%=mag.mag_id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
                             </li>
+                        <% if(loggedAdmin || loggedUser.mag_id == mag.mag_id){ %> 
                             <li>
                                 <a href="/warehouses/edit/<%=mag.mag_id%>" class="list-actions-button-edit "><%= __('list.actions.edit') %></a>
                             </li>
+                            <% if(loggedAdmin ){ %> 
                             <li>
                                 <a href="/warehouses/delete/<%=mag.mag_id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                             </li>
+                            <% } %>
+                        <% } %>
                         </ul>
                     </td>
                     <% } %>
@@ -50,7 +54,7 @@
            </tbody>
         </table>
         <form class="form-editbtns">
-            <% if(loggedUser) { %>
+            <% if(loggedAdmin) { %>
            <a href="warehouses/add" class="button-add"><%= __('mag.list.addNew') %></a>
            <% } %>
            <a href="/" class="button-return"><%= __('prc.list.backToMainPage') %></a>
