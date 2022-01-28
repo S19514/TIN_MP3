@@ -59,6 +59,10 @@ exports.addWarehouse = (req, res, next) => {
             res.redirect('/warehouses');
         })
         .catch(err => {
+            for(let i=0; i<err.errors.length; i++)
+            {
+                    err.errors[i].message = req.__('mag.db.errs.'+err.errors[i].message);
+            }
             res.render('pages/magazyn/form', {               
                 mag: magData,
                 pageTitle:  req.__('mag.form.add.pageTitle'), //'Dodawanie magazynu',
@@ -79,6 +83,10 @@ exports.updateWarehouse = (req, res, next) => {
             res.redirect('/warehouses');
         })
         .catch(err => {
+            for(let i=0; i<err.errors.length; i++)
+            {
+                    err.errors[i].message = req.__('mag.db.errs.'+err.errors[i].message);
+            }
             res.render('pages/magazyn/form', {               
                 mag: magData,                
                 pageTitle:  req.__('mag.form.edit.pageTitle'), //'Edycja magazynu',

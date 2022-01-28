@@ -1,3 +1,4 @@
+const e = require('express');
 const Firma = require('../models/sequelize/Firma');
 const FirmaRepository = require('../repository/sequelize/FirmaRepository');
 
@@ -60,6 +61,11 @@ exports.addCompany = (req, res, next) => {
             res.redirect('/companies');
         })
         .catch(err => {
+            for(let i=0; i<err.errors.length; i++)
+            {
+                    err.errors[i].message = req.__('frm.db.errs.'+err.errors[i].message);
+            }
+        
             res.render('pages/firma/form', {
                 frm: frmData,
                 pageTitle: req.__('frm.form.add.pageTitle'), //'Dodawanie firmy',
@@ -79,6 +85,10 @@ exports.updateCompany = (req, res, next) => {
             res.redirect('/companies');
         })
         .catch(err => {
+            for(let i=0; i<err.errors.length; i++)
+            {
+                    err.errors[i].message = req.__('frm.db.errs.'+err.errors[i].message);
+            }
             res.render('pages/firma/form', {
                 frm: frmData,
                 pageTitle: req.__('frm.form.edit.pageTitle'), //'Edycja firmy',

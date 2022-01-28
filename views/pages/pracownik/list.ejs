@@ -28,7 +28,7 @@
                    <td><%= prc.firma.frm_nazwa  %></td>
                    
                    <td>
-                    <% if((loggedUser && (loggedUser.prc_id == prc.prc_id || (loggedUser.mag_id == prc.mag_id && loggedUser.frm_id == prc.frm_id)) || loggedAdmin)){ %>
+                    <% if((loggedUser && (loggedUser.prc_id == prc.prc_id) ) || loggedAdmin ){ %>
                     <ul>
                         <li>
                             <a href="/employees/details/<%=prc.prc_id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>

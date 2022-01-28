@@ -85,6 +85,21 @@
 			"details": {
 				"pageTitle": "Employee details"
 			}
+		},
+		"db": {
+			"errs": {
+				"_2_5_": "Field should contain 2 to 5 chars DB test",
+				"_REQ_": "Field is required DB TEST",
+				"_2_150_": "Field should contain 2 to 150 chars DB test",
+				"_2_20_": "Field should contain 2 to 20 chars DB test",
+				"_0_150_": "Field should contain less than 150 chars DB test",
+				"Validation isDate on prc_dataUrodzenia failed": "Invalid Date DB TEST",
+				"_2_100_": "Field should contain 2 to 100 chars DB test",
+				"_0_100_": "Field should contain less than 100 chars DB test",
+				"Pracownik": {
+					"password cannot be null": "Field is required DB TEST"
+				}
+			}
 		}
 	},
 	"validationMessage": {
@@ -124,6 +139,24 @@
 			"details": {
 				"pageTitle": "Details of Warehouse"
 			}
+		},
+		"db": {
+			"errs": {
+				"_2_5_": "Field should contain 2 to 5 chars DB test",
+				"_REQ_": "Field is required DB TEST",
+				"_2_150_": "Field should contain 2 to 150 chars DB test",
+				"_2_20_": "Field should contain 2 to 20 chars DB test",
+				"_0_150_": "Field should contain less than 150 chars DB test",
+				"Validation isDate on prc_dataUrodzenia failed": "Invalid Date DB TEST",
+				"_2_100_": "Field should contain 2 to 100 chars DB test",
+				"_0_100_": "Field should contain less than 100 chars DB test",
+				"Pracownik": {
+					"password cannot be null": "Field is required DB TEST"
+				},
+				"_2_25_": "Field should contain 2 to 25 chars DB test",
+				"_TOOSMALL_": "Value should be at least 1",
+				"_TOOBIG_": "Value should be maximum 2147483647"
+			}
 		}
 	},
 	"frm": {
@@ -149,6 +182,15 @@
 			"edit": {
 				"pageTitle": "Editing a Company",
 				"btnLabel": "Save changes"
+			}
+		},
+		"db": {
+			"errs": {
+				"_2_5_": "Field should contain 2 to 5 chars DB test",
+				"_REQ_": "Field is required DB TEST",
+				"_2_150_": "Field should contain 2 to 150 chars DB test",
+				"_2_20_": "Field should contain 2 to 20 chars DB test",
+				"_0_150_": "Field should contain less than 150 chars DB test"
 			}
 		}
 	}

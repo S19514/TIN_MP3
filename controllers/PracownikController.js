@@ -3,6 +3,7 @@ const PracownikRepository = require('../repository/sequelize/PracownikRepository
 const FirmaRepository = require('../repository/sequelize/FirmaRepository');
 const authUtil = require('../util/authUtils.js'); //require('../../util/authUtils.js');
 const e = require('express');
+const { Json } = require('sequelize/dist/lib/utils');
 
 
 
@@ -79,7 +80,7 @@ exports.showEmployeeDetails = (req,res,next) => {
         
     })        
     .then( frm => {
-        allFirmy = frm;
+        allFirmy = frm;        
         return PracownikRepository.getPracownikById(prcId);
     })
     
@@ -94,11 +95,13 @@ exports.showEmployeeDetails = (req,res,next) => {
                 allFirmy: allFirmy,
                 validationErrors: []            
             });
+           // console.log('controller'+JSON.stringify(prc))
         }); 
 }
 exports.addEmployee = (req, res, next) => {
     const empData = { ...req.body };
     console.log(empData.password);
+    
     const passHash = authUtil.hashPassword(empData.password);
     empData.password = passHash;
     let allMagazyny, allFirmy;
@@ -116,6 +119,10 @@ exports.addEmployee = (req, res, next) => {
             res.redirect('/employees');
         })
         .catch(err => {
+            for(let i=0; i<err.errors.length; i++)
+            {
+                    err.errors[i].message = req.__('prc.db.errs.'+err.errors[i].message);
+            }            
             res.render('pages/pracownik/form', {
                 prc: empData,
                 pageTitle: req.__('prc.form.add.pageTitle'), //'Dodawanie pracownika',
@@ -133,22 +140,35 @@ exports.addEmployee = (req, res, next) => {
 exports.updateEmployee = (req, res, next) => {
     const prcId = req.body.prc_id;
     const empData = { ...req.body };
-    const EmpData2Com = PracownikRepository.findPassById(prcId);
-    var passHash = undefined;
-    console.log(empData.password);
-    if(EmpData2Com.passsword != empData.passsword)
-    {
+
+    // PracownikRepository.findPassById(prcId)
+    //     .then( () => {
+    //         res.redirect('/employees');
+    //     });
+    // let EmpData2Com = PracownikRepository.getPracownikById(prcId);
+    // console.log(JSON.stringify(empData));
+    // console.log(JSON.stringify(EmpData2Com));
+    // var passHash = undefined;
+    // console.log(empData.password);
+    // console.log(EmpData2Com.password);
+    
+    //if(EmpData2Com.password != empData.password)
+    //{
+        if(empData.password)
+        {
          passHash = authUtil.hashPassword(empData.password);
         empData.password = passHash;
-    }
-    else
-        empData.password = EmpData2Com.password;
+        }
+    //}
+    // else //if(EmpData2Com.password)
+    //     empData.password = EmpData2Com.password;
 
     if(empData.prc_dataUrodzenia)
         empData.prc_dataUrodzenia = new Date(empData.prc_dataUrodzenia);
     else
         empData.prc_dataUrodzenia = new Date();
 
+        console.log(JSON.stringify(empData));
         console.log('IS ADMIN OR NO: ' +empData.IsAdmin);
 
     let allMagazyny, allFirmy;
@@ -166,6 +186,11 @@ exports.updateEmployee = (req, res, next) => {
             res.redirect('/employees');
         })
         .catch(err => {
+            for(let i=0; i<err.errors.length; i++)
+            {
+                    err.errors[i].message = req.__('prc.db.errs.'+err.errors[i].message);
+            }
+            console.log(JSON.stringify(empData));
             res.render('pages/pracownik/form', {
                 prc: empData,
                 pageTitle: req.__('prc.form.edit.pageTitle'), //'Edycja pracownika',

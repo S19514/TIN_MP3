@@ -14,11 +14,11 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,25],
-                msg: "Pole powinno zawierać od 2 do 25 znaków"
+                msg: "_2_25_"
             },
         }
     },
@@ -27,11 +27,11 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,100],
-                msg: "Pole powinno zawierać od 2 do 100 znaków"
+                msg: "_2_100_"
             },
         }
     },
@@ -40,11 +40,11 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,5],
-                msg: "Pole powinno zawierać od 2 do 5 znaków"
+                msg: "_2_5_"
             },
         }
     },
@@ -53,15 +53,15 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     },
@@ -70,15 +70,15 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     },
@@ -87,15 +87,15 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     },
@@ -104,15 +104,15 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     },
@@ -121,15 +121,15 @@ const Magazyn = sequelize.define('Magazyn',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     },
@@ -140,11 +140,11 @@ const Magazyn = sequelize.define('Magazyn',
         validate: {            
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     }

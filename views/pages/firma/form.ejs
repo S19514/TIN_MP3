@@ -2,7 +2,8 @@
         <main>
             <script type="application/javascript" src="/js/validationFirmaForm.js"></script>
             <h2><%= pageTitle %></h2>            
-            <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();">
+            <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();" > 
+                <!-- onsubmit="return validateForm();" -->
                 <input type="hidden" name="frm_id" value="<%= frm.frm_id%>">    
                 
                 <label for="frm_nazwa"><%= __('frm.fields.name')  + ':'%><span class="symbol-required">*</span></label>

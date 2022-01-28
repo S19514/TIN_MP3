@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 const Magazyn = require("../../models/sequelize/Magazyn");
 const Pracownik = require("../../models/sequelize/Pracownik");
+const Pracownik2 = require("../../models/sequelize/Pracownik");
 const Firma = require("../../models/sequelize/Firma");
 
 exports.getPracownicy = () => {
@@ -17,7 +18,7 @@ exports.getPracownicy = () => {
     });
 };
 
-exports.getPracownikById = (pracownikId) => {
+exports.getPracownikById = (pracownikId) => {  
     return Pracownik.findByPk(pracownikId, {include: [
         {
             model: Magazyn,
@@ -28,6 +29,7 @@ exports.getPracownikById = (pracownikId) => {
             as: 'firma'
         }]
     });
+    
 };
 
 exports.createPracownik = (data) => {

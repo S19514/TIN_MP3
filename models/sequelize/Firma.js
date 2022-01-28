@@ -14,11 +14,11 @@ const Firma = sequelize.define('Firma',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,150],
-                msg: "Pole powinno zawierać od 2 do 150 znaków"
+                msg: "_2_150_"
             },
         }
     },
@@ -27,11 +27,11 @@ const Firma = sequelize.define('Firma',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,150],
-                msg: "Pole powinno zawierać od 2 do 150 znaków"
+                msg: "_2_150_"
             },
         }
     },
@@ -40,11 +40,11 @@ const Firma = sequelize.define('Firma',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,20],
-                msg: "Pole powinno zawierać od 2 do 20 znaków"
+                msg: "_2_20_"
             },
         }
     },
@@ -53,11 +53,12 @@ const Firma = sequelize.define('Firma',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,150],
-                msg: "Pole powinno zawierać od 2 do 150 znaków"
+                //msg: "Pole powinno zawierać od 2 do 150 znaków db"
+                msg:"_2_150_"
             },
         }
     },
@@ -66,11 +67,13 @@ const Firma = sequelize.define('Firma',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+               // msg: "Pole jest wymagane db"
+               msg:"_REQ_"
             },
             len: {
                 args:[2,5],
-                msg: "Pole powinno zawierać od 2 do 5 znaków"
+                //msg: "Pole powinno zawierać od 2 do 5 znaków db"
+                msg: "_2_5_"
             },
         }
     },
@@ -80,7 +83,7 @@ const Firma = sequelize.define('Firma',
         validate: {        
             len: {
                 args:[0,150],
-                msg: "Pole powinno zawierać od 0 do 150 znaków"
+                msg: "_0_150_"
             },
         }
     }

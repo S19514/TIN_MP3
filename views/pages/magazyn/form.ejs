@@ -3,7 +3,7 @@
         <script type="application/javascript" src="/js/validationMagazynForm.js"></script>
         <h2><%= pageTitle %></h2>
         <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();" >
-          
+          <!-- onsubmit="return validateForm();" -->
             <input type="hidden" name="mag_id" value="<%= mag.mag_id%>">    
 
             <label for="mag_kod"><%= __('mag.fields.code')  + ':'%><span class="symbol-required">*</span></label>

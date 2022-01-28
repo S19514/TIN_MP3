@@ -14,11 +14,11 @@ const Pracownik = sequelize.define('Pracownik',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,150],
-                msg: "Pole powinno zawierać od 2 do 150"
+                msg: "_2_150_"
             },
         }
     },
@@ -27,11 +27,11 @@ const Pracownik = sequelize.define('Pracownik',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,150],
-                msg: "Pole powinno zawierać od 2 do 150 znaków"
+                msg: "_2_150_"
             },
         }
     },
@@ -40,7 +40,7 @@ const Pracownik = sequelize.define('Pracownik',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
           isDate: true
         }
@@ -50,11 +50,11 @@ const Pracownik = sequelize.define('Pracownik',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             len: {
                 args:[2,100],
-                msg: "Pole powinno zawierać od 2 do 100 znaków"
+                msg: "_2_100_"
             },
         }
     },
@@ -64,7 +64,7 @@ const Pracownik = sequelize.define('Pracownik',
         validate: {
             len: {
                 args:[0,100],
-                msg: "Pole powinno zawierać od 2 do 100 znaków"
+                msg: "_0_100_"
             },
         }
     },
@@ -73,15 +73,15 @@ const Pracownik = sequelize.define('Pracownik',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
         }
     },
@@ -90,21 +90,26 @@ const Pracownik = sequelize.define('Pracownik',
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "_REQ_"
             },
             min: {
                 args: [1],
-                msg: "Wartość jest zbyt mała"
+                msg: "_TOOSMALL_"
             },
             max:{
                 args: [2147483647],
-                msg: "Wartość jest zbyt duża"
+                msg: "_TOOBIG_"
             } 
     }
 },
 password: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+        notEmpty: {
+            msg: "_REQ_"
+        }    
+    }
 },
 IsAdmin: { 
     type: Sequelize.BOOLEAN,

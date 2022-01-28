@@ -88,6 +88,21 @@
 			"details": {
 				"pageTitle": "Szczegóły pracownika"
 			}
+		},
+		"db": {
+			"errs": {
+				"_2_5_": "Pole powinno zawierać od 2 do 5 znaków DB test",
+				"_REQ_": "Pole jest wymagane DB test",
+				"_2_150_": "Pole powinno zawierać od 2 do 150 znaków DB test",
+				"_2_20_": "Pole powinno zawierać od 2 do 20 znaków DB test",
+				"_0_150_": "Pole powinno zawierać nie więcej niż 150 znaków DB test",				
+				"Validation isDate on prc_dataUrodzenia failed": "Nieprawidłowa data DB TEST",
+				"_2_100_": "Pole powinno zawierać od 2 do 100 znaków DB test",
+				"_0_100_" : "Pole powinno zawierać nie więcej niż 100 znaków DB test",
+				"Pracownik": {
+					"password cannot be null": "Pole nie może być puste DB TEST"
+				}
+			}
 		}
 	},
 	"2-100 form": {
@@ -129,6 +144,24 @@
 				"pageTitle": "Dodawanie Magazynu",
 				"btnLabel": "Dodaj nowy magazyn"
 			}
+		},
+		"db": {
+			"errs": {
+				"_2_5_": "Pole powinno zawierać od 2 do 5 znaków DB test",
+				"_REQ_": "Pole jest wymagane DB test",
+				"_2_150_": "Pole powinno zawierać od 2 do 150 znaków DB test",
+				"_2_20_": "Pole powinno zawierać od 2 do 20 znaków DB test",
+				"_0_150_": "Pole powinno zawierać nie więcej niż 150 znaków DB test",				
+				"Validation isDate on prc_dataUrodzenia failed": "Nieprawidłowa data DB TEST",
+				"_2_100_": "Pole powinno zawierać od 2 do 100 znaków DB test",
+				"_0_100_" : "Pole powinno zawierać nie więcej niż 100 znaków DB test",
+				"Pracownik": {
+					"password cannot be null": "Pole nie może być puste DB TEST"
+				},
+				"_2_25_": "Pole powinno zawierać od 2 do 25 znaków DB test",
+				"_TOOSMALL_": "Wartość musi wynosić conajmniej 1",
+				"_TOOBIG_": "Wartość nie może przekroczyć 2147483647"
+			}
 		}
 	},
 	"frm": {
@@ -154,6 +187,15 @@
 			"edit": {
 				"pageTitle": "Edycja firmy",
 				"btnLabel": "Zapisz zmiany"
+			}
+		},
+		"db": {
+			"errs": {				
+				"_2_5_": "Pole powinno zawierać od 2 do 5 znaków DB test",
+				"_REQ_": "Pole jest wymagane DB",
+				"_2_150_": "Pole powinno zawierać od 2 do 150 znaków DB",
+				"_2_20_": "Pole powinno zawierać od 2 do 20 znaków DB",
+				"_0_150_": "Pole powinno zawierać nie więcej niż 150 znaków DB"
 			}
 		}
 	}
